@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tabs</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.tablinks{
+			border: 1px solid;
+			padding: 10px;
+		}
+		.tablinks a{
+			padding: 10px;
+			font-size: 20px;
+			text-decoration: none;
+		}
+		#content{
+			border: 1px solid;
+			padding: 20px;
+		}
+		#content p{
+			margin-top: 10px;
+		}
+		.tab{
+			display: none;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="tablinks">
+			<a href="#">London</a>
+			<a href="#">Paris</a>
+			<a href="#">Tokyo</a>
+		</div>
+		<div id="content">
+			<div  id="london" class="tab">
+				<h2>London</h2>
+				<p>London is the capital city of England</p>
+			</div>
+			<div  id="paris" class="tab">
+				<h2>Paris</h2>
+				<p>Paris is the capital city of France</p>
+			</div>
+			<div  id="tokyo" class="tab">
+				<h2>Tokyo</h2>
+				<p>Tokyo is the capital city of Japan</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	const links = document.getElementsByTagName('a')
+	const tabs = document.getElementsByClassName('tab')
+	tabs[0].style.display = 'block';
+
+	for(let i=0; i<links.length; i++) {
+
+		links[i].addEventListener('click', function() {
+			this.classList.toggle('active');
+			console.log(links)
+		})
+	}
+
+	function check() {
+		for(let i=0; i<tabs.length; i++) {
+		switch(tabs[i].innerText) {
+			case 'London':
+				tabs[i].style.display = 'block';
+				break;
+			case 'Paris':
+				tabs[i].style.display = 'block';
+				break;
+			case 'Tokyo':
+				tabs[i].style.display = 'block';
+				break;
+		}
+	}
+	}
+	
+
+	console.log(links)
+</script>

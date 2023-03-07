@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Accordion</title>
+	<style type="text/css">
+		body{
+			font-family: sans-serif;
+			text-align: center;
+			background-color: #0A2344;
+		}
+		.accordion{
+			border: 1px solid;
+			width: 80%;
+			margin: auto;
+			color: white;
+			padding: 45px 45px;
+		}
+		.accordion .container{
+			position: relative;
+			margin: 10px 10px;
+		}
+		.accordion .label{
+			position: relative;
+			background-color: red;
+			padding: 10px 0;
+			color: black;
+			font-size: 30px;
+			cursor: pointer;
+		}
+		.accordion .lable::after {
+			content: '+';
+			position: absolute;
+			right: 5px;
+		}
+		.accordion .content{
+			position: relative;
+/*			background-color: white;*/
+			height: 0;
+			overflow: hidden;
+			font-size: 20px;
+			transition: 0.5s;
+		}
+		.active .content{
+			height: 50px;
+		}
+		.active .lable::after{
+			content: '-';
+		}
+	</style>
+</head>
+<body>
+	<div class="accordion-body">
+		<div class="accordion">
+			<h1>FAQs</h1>
+			<hr>
+			<div class="container">
+				<div class="lable">First question</div>
+				<div class="content">this is content...</div>
+			</div>
+			<hr>
+			<div class="container">
+				<div class="lable">Second question</div>
+				<div class="content">this is content...</div>
+			</div>
+			<hr>
+			<div class="container">
+				<div class="lable">Third question</div>
+				<div class="content">this is content...</div>
+			</div>
+			<hr>
+			<div class="container">
+				<div class="lable">Forth question</div>
+				<div class="content">this is content...</div>
+			</div>
+			<hr>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	const accordion = document.getElementsByClassName('container')
+
+	// console.log(accordion)
+
+	for(let i=0; i<accordion.length; i++) {
+		accordion[i].addEventListener('click', function() {
+		this.classList.toggle('active')
+		console.log(this)
+		})
+	}
+
+</script>

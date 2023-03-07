@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    font-family: sans-serif;
+    text-align: center;
+/*			color: #8e8e8e;*/
+}
+#container{
+    border: 1px solid #dddfe2;
+    width: 270px;
+    height: 570px;
+    margin: auto;
+    text-align: center;
+    margin-top: 10px;
+    padding: 40px;
+}
+#container>img{
+    width: 65%;
+    margin: auto;
+/*			margin-top: 10px;*/
+}
+#container>p{
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+#container>a button{
+    font-weight: bold;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    border-width: 1px;
+    border: none;
+    background-color: #0095f6;
+    padding: 10px 10px;
+    margin-bottom: 30px;
+}
+i{
+    margin-right: 5px;
+    color: white;
+    font-size: 15px;
+}
+hr{
+    margin-bottom: 30px;
+}
+#container>input{
+    width: 90%;
+    border-width: 1px;
+    border-color: #dddfe2;
+    border-radius: 3px;
+    border-width: thin;
+    text-align: left;
+    padding: 10px 7px;
+    font-size: 13px;
+    background-color: #fafafa;
+    margin-bottom: 10px;
+}
+#container>input~p{
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 1.5;
+    color: #8e8e8e;
+    margin-bottom: 20px;
+    font-weight: thin;
+}#container a{
+    text-decoration: none;
+}
+hr{
+    margin-top: 5px;
+
+    width: 40%;
+}
+#container>div{
+    font-size: 13px;
+    justify-content: space-between;
+    display: flex;
+}
+#login{
+    border: 1px solid #dddfe2;
+    width: 26%;
+    margin:auto;
+    text-align: center;
+    margin-top: 10px;
+    color: black;
+    height: 70px;
+    margin-bottom: 20px;
+}
+#login>p{
+    margin-top: 30px;
+    font-size: 14px;
+}
+#login a{
+    text-decoration: none;
+    color: blue;
+}
+#logo{
+    width: 18%;
+/*			border: 1px solid;*/
+    display: flex;
+    justify-content: space-between;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+#logo>img{
+    width: 48%;
+}
+#links{
+/*			border: 1px solid;*/
+    height: 20px;
+    width: 65%;
+    line-height: 2;
+    margin: auto;
+    margin-bottom: 100px;
+}
+#links>a{
+    text-decoration: none;
+    font-size: 12px;
+    margin-right: 12px;
+    color: #8e8e8e;
+}
+select{
+    border: none;
+    font-size: 11px;
+    color: #8e8e8e;
+}
