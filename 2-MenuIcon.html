@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Menu Icon</title>
+	<style>
+		#first div{
+			width: 30px;
+			height: 5px;
+			margin: 5px;
+			background-color: black;
+		}
+		#second div{
+			width: 30px;
+			height: 5px;
+			margin: 5px;
+			background-color: black;
+			transition: 0.4s;
+		}
+		.transform #bar2{
+			opacity: 0;
+		}
+		.transform #bar1{
+			transform: translate(0, 10px) rotate(45deg);
+		}
+		.transform #bar3{
+			transform: translate(0, -10px) rotate(-45deg);
+		}
+
+	</style>
+</head>
+<body>
+	<h3>first icon (Static)</h3>
+	<div id="first">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+
+	<h3>second icon (click on it to se animation )</h3>
+	<div id="second" onclick={myFunc(this)}>
+		<div id="bar1"></div>
+		<div id="bar2"></div>
+		<div id="bar3"></div>
+	</div>
+</body>
+</html>
+<script>
+	function myFunc(x) {
+		x.classList.toggle('transform')
+		console.log(x.classList.length)
+	}
+</script>

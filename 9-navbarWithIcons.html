@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <title>Navbar with Icons</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .navbar{
+            overflow: hidden;
+            display: flex;
+            background-color: grey;
+        }
+        .navbar a{
+            padding: 20px;
+            text-decoration: none;
+            color: white;
+            /* font-size: 20px; */
+        }
+        .navbar a:hover{
+            background-color: black;
+            color: white;
+        }
+        .navbar i{
+            margin-right: 10px;
+        }
+        .active{
+            background-color: rgb(2, 104, 2);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="" class="active"><i class="fa-solid fa-house"></i>HOME</a>
+        <a href=""><i class="fa-solid fa-user"></i>USERS</a>
+        <a href=""><i class="fa-solid fa-address-book"></i>CONTACT</a>
+        <a href=""><i class="fa-solid fa-question"></i>ABOUT US</a>
+    </div>
+</body>
+</html>

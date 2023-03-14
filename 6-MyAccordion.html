@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Accordion</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			text-align: center;
+			color: white;
+			font-family: sans-serif;
+		}
+		body{
+			background-color: #0A2344;
+		}
+		#accordion-body{
+			border: 1px solid;
+			width: 90%;
+			margin: auto;
+			margin-top: 50px;
+			padding: 5px;
+		}
+		.accordion{
+/*			border: 1px solid red;*/
+			position: relative;
+			margin-bottom: 5px;
+		}
+		#accordion-body:hover .lable{
+			opacity: 0.5;
+		}
+		.content{
+			height: 0;
+			transition: 0.3s;
+			overflow: hidden;
+			font-size: 15px;
+		}
+		.lable{
+			padding: 10px;
+			font-size: 20px;
+		}
+		.lable::after{
+			content: '+';
+			position: absolute;
+			right: 5px;
+		}
+		#accordion-body .lable:hover{
+			cursor: pointer;
+			opacity: 1;
+		}
+		.active .content{
+			height: 100px;
+		}
+		.active .lable::after{
+			content: '-';
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Accordion</h1>
+	<div id="accordion-body">
+		<h2>FAQs</h2><hr>
+		<div class="accordion">
+			<h3 class="lable">First Question</h3>
+			<p class="content">this is content-1<br>blah<br>blah<br>blah</p>
+			<hr>
+		</div>
+		<div class="accordion">
+			<h3 class="lable">Second Question</h3>
+			<p class="content">this is content-2<br>blah<br>blah<br>blah</p>
+			<hr>
+		</div>
+		<div class="accordion">
+			<h3 class="lable">Third Question</h3>
+			<p class="content">this is content-3<br>blah<br>blah<br>blah</p>
+			<hr>
+		</div>
+		<div class="accordion">
+			<h3 class="lable">Forth Question</h3>
+			<p class="content">this is content-4<br>blah<br>blah<br>blah</p>
+			<hr>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	const accordion = document.getElementsByClassName('accordion')
+
+	for(let i=0; i<accordion.length; i++) {
+		accordion[i].addEventListener('click', function() {
+			this.classList.toggle('active');
+			console.log(this)
+		})
+	}
+</script>
