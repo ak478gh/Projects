@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Animated Sidenav</title>
+
+	<script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+
+	<style type="text/css">
+		*{
+			margin: 0;
+			transition: background-color 0.5s;
+		}
+		.sidebar{
+			width: 0px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			transition: .5s;
+			z-index: 1;
+			overflow-x: hidden;
+			background-color: black;
+			padding-top: 60px;
+			color: grey;
+			height: 100vh;
+		}
+		span{
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			cursor: pointer;
+			transition: .5s;
+			color: grey;
+			font-size: 25px;
+		}
+		.sidebar a{
+			display: block;
+			text-decoration: none;
+			font-size: 16px;
+			padding: 8px;
+/*			margin-left: 10px;*/
+			color: grey;
+		}
+		.sidebar a:hover{
+			color: white;
+		}
+		.sidebar i{
+			margin-right: 10px;
+		}
+		.content{
+			padding-left: 20px;
+			transition: 0.5s;
+		}
+		.content button{
+			cursor: pointer;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="sidebar" id="sidenav">
+			<span onclick="closeNav()"><i class="fa-solid fa-xmark"></i></span>
+			<a href=""><i class="fa-solid fa-house"></i> HOME</a>
+			<a href=""><i class="fa-solid fa-wrench"></i> SERVICES</a>
+			<a href=""><i class="fa-solid fa-user"></i> CLIENTS</a>
+			<a href=""><i class="fa-solid fa-envelope"></i> CONTACT</a>
+		</div>
+		<div class="content" id="content">
+			<h1>Animated Sidenav</h1>
+			<button onclick="openNav()">OPEN-NAVBAR</button>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	function openNav() {
+		document.getElementById('sidenav').style.width = '250px';
+		document.getElementById('content').style.marginLeft = '250px'
+		document.body.style.backgroundColor = 'rgba(0,0,0,0.4)'
+	}
+
+	function closeNav() {
+		document.getElementById('sidenav').style.width = '0px';
+		document.getElementById('content').style.marginLeft = '0px';
+		document.body.style.backgroundColor = 'white'
+	}
+</script>
