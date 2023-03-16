@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Bar</title>
+
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+
     <style>
         *{
             margin: 0;
@@ -29,6 +32,18 @@
         .navbar a:hover{
             background-color: rgb(212, 208, 208);
         }
+        .search-bar{
+            border: 1px solid;
+            padding: 5px;
+            display: flex;
+        }
+        .search-bar button{
+            padding: 5px 10px;
+        }
+        .search-bar input{
+            padding: 10px;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -37,7 +52,12 @@
         <a href="">USERS</a>
         <a href="">CONTACT</a>
         <a href="">LOGIN</a>
-        <input type="text" placeholder="Search..">
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        
+        
     </div>
 </body>
 </html>
