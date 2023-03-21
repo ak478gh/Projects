@@ -1,0 +1,93 @@
+body {
+  font-family: sans-serif;
+}
+* {
+  text-align: center;
+  font-family: sans-serif;
+}
+.alignLeft {
+  text-align: left;
+  padding-left: 2.2vw;
+  font-weight: thin;
+}
+hr {
+  width: 90%;
+  opacity: 30%;
+}
+#app {
+  width: 30%;
+  margin: auto;
+}
+.top-section {
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+#app > div {
+  /* border: 1px solid green; */
+  width: 100%;
+}
+#app form label {
+  font-size: 1vw;
+  text-align: left;
+  font-weight: bold;
+}
+button {
+  background-image: linear-gradient(#f4d587, #f1c454);
+  border-width: thin;
+  border-radius: 3px;
+  padding: 1vh;
+  width: 30%;
+}
+#app form input {
+  margin: 1vh 2vh;
+  padding: 1vh;
+  width: 25vw;
+}
+.btm-section {
+  font-size: 1.6vw;
+}
+.links {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.links a {
+  text-decoration: none;
+  color: #557ab8;
+}
+@media screen and (max-width: 800px) {
+  #app {
+    /* border: 1px solid green; */
+    width: 80%;
+    margin: auto;
+  }
+  #app form input {
+    margin: 1vh 2vh;
+    padding: 1vh;
+    width: 40vw;
+  }
+  #app form label {
+    font-size: 2.5vw;
+    text-align: left;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #app {
+    /* border: 1px solid green; */
+    width: 80%;
+    margin: auto;
+  }
+  #app form input {
+    margin: 1vh 2vh;
+    padding: 1vh;
+    width: 40vw;
+  }
+  #app form label {
+    font-size: 2.5vw;
+    text-align: left;
+    font-weight: bold;
+  }
+}
