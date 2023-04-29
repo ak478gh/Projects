@@ -38,7 +38,11 @@
 
         @media screen and (max-width: 600px){
             #container a:not(:first-child){
-                display: none;
+                /* display: none; */
+            }
+            #container>.menus{
+                display: flex;
+                flex-direction: column;
             }
             #container a.icon{
                 display: block;
@@ -65,10 +69,12 @@
 </head>
 <body>
     <div id="container">
-            <a href="">HOME</a>
-            <a href="">USERS</a>
-            <a href="">CONTACT</a>
-            <a href="">ABOUT</a>
+            <div class="menus">
+                <a href="">HOME</a>
+                <a href="">USERS</a>
+                <a href="">CONTACT</a>
+                <a href="">ABOUT</a>
+            </div>
             <a href="" class="icon" onclick="myFunc()">
                 <i class="fa fa-bars"></i>
             </a>

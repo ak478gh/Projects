@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Navbar Button</title>
+    <style>
+        .container {
+            position: relative;
+            height: 100vh;
+        }
+        .menus{
+            position: absolute;
+            top: 50%;
+            left: -100px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+        }
+        .menus > a {
+            padding: 1vw;
+            margin-bottom: 1vh;
+            border-radius: 0 5px 5px 0;
+            text-decoration: none;
+            text-align: center;
+            color: black;
+            font-weight: 600;
+            width: 120px;
+            position: relative;
+            transition: left 0.5s; /* Add the transition property */
+        }
+        .menus > a:nth-child(1) {
+            background-color: blue;
+        }
+        .menus > a:nth-child(2) {
+            background-color: green;
+        }
+        .menus > a:nth-child(3) {
+            background-color: pink;
+        }
+        .menus > a:nth-child(4) {
+            background-color: gray;
+        }
+
+        .menus > a:nth-child(1):hover {
+            left: 100px;
+        }
+        .menus > a:nth-child(2):hover {
+            left: 100px;
+        }
+        .menus > a:nth-child(3):hover {
+            left: 100px;
+        }
+        .menus > a:nth-child(4):hover {
+            left: 100px;
+        }
+
+        /* .menus > a:hover {
+            left: 100px;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menus">
+            <a href="">HOME</a>
+            <a href="">CONTACT</a>
+            <a href="">ABOUT</a>
+            <a href="">HELP</a>
+        </div>
+        <h1>Hoverable Sidenav Buttons</h1>
+        <p>Hover over the buttons in the left side navigation to open them.</p>
+    </div>
+</body>
+</html>

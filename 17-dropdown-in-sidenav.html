@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown in Sidenav</title>
+	<script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #icon{
+            transform: rotate(90deg);
+        }
+        nav {
+            background-color: rgb(228, 225, 225);
+            padding: 1vw;
+            border: 1px solid;
+            width: 25vw;
+        }
+        nav>a {
+            font-size: 1.5vw;
+            display: block;
+            background-color: black;
+            text-decoration: none;
+            color: rgb(153, 151, 151);
+            padding: 1vw;
+        }
+        nav > a:hover{
+            color: white;
+        }
+        #drpdwn{
+            cursor: pointer;
+        }
+        #drpdwnMenus{
+            height: 0;
+            transition: 0.5s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        #drpdwnMenus > a {
+            padding: .5vw;
+            padding-left: 2vw;
+            font-size: 1.3vw;
+            text-decoration: none;
+            color: grey;
+            background-color: black;
+        }
+        #drpdwnMenus > a:hover{
+            color: white;
+        }
+        .text {
+            padding: 1vw;
+        }
+        .container {
+            border: 1px solid;
+            display: flex;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="">ABOUT</a>
+            <a href="">SERVICES</a>
+            <a href="">CLIENTS</a>
+            <a href="">CONTACT</a>
+            <a id="drpdwn">DROPDOWN <i id="icon" class="fa-solid fa-play"></i></a>
+            <div id="drpdwnMenus">
+                <a href="">Link 1</a>
+                <a href="">Link 2</a>
+                <a href="">Link 3</a>
+            </div>
+            <a href="">SEARCH</a>
+        </nav>
+        <div class="text">
+            <h1>Sidebar Dropdown</h1>
+            <p>Click on the dropdown button to open the dropdown menu inside the side navigation.This sidebar is of full height (100%) and always shown.Some random text..</p>
+        </div>
+    </div>
+
+        
+</body>
+</html>
+<script>
+    let drpdwn = document.getElementById('drpdwn')
+    let drpdwnMenus = document.getElementById('drpdwnMenus')
+    let flag = false;
+    drpdwn.addEventListener('click', ()=> {
+        
+        if(flag) {
+            drpdwnMenus.style.height = 0
+            flag = !flag;
+        } else {
+            drpdwnMenus.style.height = 'auto'
+            flag = !flag;
+        }
+    })
+</script>

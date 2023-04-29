@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 200vh;
+        }
+        #nav{
+            padding: 1vw;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid;
+            overflow: hidden;
+            align-items: center;
+            background-color: rgb(238, 237, 237);
+        }
+        #logo {
+            padding: 4vw;
+            transition: 0.5s;
+        }
+        .menus a{
+            text-decoration: none;
+            color: black;
+            padding: 1.2vw;
+            font-size: 2vw;
+        }
+        .menus a:hover{
+            background-color:rgb(8, 128, 240);
+        }
+
+        @media screen and (max-width: 600px) {
+            #nav{
+                flex-direction: column;
+            }
+            .menus a{
+                display: block;
+                border-radius: 2px;
+                font-size: 2vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <h1 id="logo">company Logo</h1>
+        <div class="menus">
+            <a href="">Home</a>
+            <a href="">Contact</a>
+            <a href="">About Us</a>
+            <a href="">Help</a>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let logo = document.getElementById('logo')
+    window.addEventListener('scroll', ()=> {
+
+        let pos = window.scrollY;
+        if(pos>60) {
+            logo.style.padding = '2vw'
+        } else {
+            logo.style.padding = '5vw'
+        }
+        console.log(pos);
+    })
+    
+</script>
