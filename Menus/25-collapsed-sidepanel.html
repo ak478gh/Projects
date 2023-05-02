@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <title>Collepsed Sidepanel</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    #toggleBtn{
+        display: flex;
+        font-size: 20px;
+        /* position: relative; */
+        background-color: #000;
+        color: white;
+        align-items: center;
+        padding: 1vw;
+        width: 15vw;
+        margin-bottom: 50px;
+    }
+    #toggleBtn i{
+        margin-right: 1vw;
+        font-size: 15px;
+    }
+    #toggleBtn:hover{
+        background-color: #1f1e1e;
+        cursor: pointer;
+    }
+
+
+    .sidepanel{
+        overflow: hidden;
+        width: 0;
+        font-size: 20px;
+        transition: 0.5s;
+        position: absolute;
+        top: 0;
+        /* display: none; */
+        /* padding: 1vw; */
+        background-color: #333131;
+    }
+    .sidepanel i{
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+        padding-right: 1vw;
+    }
+    .sidepanel li{
+        list-style: none;
+    }
+    .sidepanel a{
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        padding: 1vw;
+        color: white;
+    }
+    .sidepanel a:hover{
+        color: #a7a0a0;
+    }
+</style>
+<body>
+    <div id="toggleBtn">
+        <i id="icon" class="fa-solid fa-bars"></i>
+        <p>Toggle Sidepanel</p>
+    </div>
+
+    <div id='sidepanel' class="sidepanel">
+        <a id="crossBtn"><i class="fa-solid fa-xmark"></i></a>
+        <ul>
+            <li><a href="">About</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Clients</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </div>
+    <h3>Collapsed Sidepanel</h3>
+    <p>Click on the hamburger menu/bar icon to open the sidepanel.</p>
+</body>
+</html>
+
+<script>
+    let toggleBtn = document.getElementById('toggleBtn')
+    let flag = true;
+    let crossBtn = document.getElementById('crossBtn')
+    crossBtn.addEventListener('click', ()=> {
+            document.getElementById('sidepanel').style.width = '0'
+            flag = !flag;
+    })
+    toggleBtn.addEventListener('click', ()=> {
+            document.getElementById('sidepanel').style.width = '20vw'
+            flag = !flag;
+    })
+</script>

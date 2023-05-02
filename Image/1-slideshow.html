@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+            margin: 0;
+        }
+        .container{
+            position: relative;
+            width: 70vw;
+            margin: auto;
+        }
+        .container img{
+            width: 100%;
+        }
+        .container #leftArrow,#rightArrow{
+            position: absolute;
+            top: 40%;
+            font-size: 25px;
+            z-index: 1;
+        }
+        #leftArrow{
+            left: 0;
+        }
+        #rightArrow{
+            right: 0;
+        }
+        .caption{
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .indicators{
+            width: 50px;
+            margin: auto;
+            display: flex;
+            gap: 5px;
+        }
+        .indicators > span{
+            padding: 0.5vw;
+            border: 1px solid;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="image" src="https://www.w3schools.com/howto/img_nature_wide.jpg" alt="">
+        <div class="caption">
+            <p>Your Caption Here</p>
+        </div>
+        <i id="leftArrow" class="fa-solid fa-circle-arrow-left"></i>
+        <i id="rightArrow" class="fa-solid fa-circle-arrow-right"></i>
+    </div>
+    <div class="indicators">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+</html>
+
+<script>
+    
+    let leftArrow = document.getElementById('leftArrow');
+    let rightArrow = document.getElementById('rightArrow');
+    let image = document.getElementById('image'), imgInd = 0;
+    let indicators = document.getElementsByTagName('span');
+
+    let imageSrc = [
+        'https://www.w3schools.com/howto/img_nature_wide.jpg',
+        'https://www.w3schools.com/howto/img_snow_wide.jpg',
+        'https://www.w3schools.com/howto/img_lights_wide.jpg',
+        'https://www.w3schools.com/howto/img_mountains_wide.jpg'
+    ];
+
+    indicators[imgInd].style.backgroundColor = 'black';
+
+    rightArrow.addEventListener('click', ()=> {
+        if(imgInd == imageSrc.length-1) {
+            imgInd = -1;
+        }
+        image.src = imageSrc[++imgInd];
+        console.log(imgInd, 'moved right')
+        console.log('rn imgInd', imgInd)
+        for(let i=0; i<indicators.length; i++) {
+            if(i == imgInd) {
+                console.log('itl', i, imgInd)
+                indicators[i].style.backgroundColor = 'black'
+            } else {
+                console.log('else itl', i, imgInd)
+                indicators[i].style.backgroundColor = 'transparent'
+            }
+        }
+    })
+
+    leftArrow.addEventListener('click', ()=> {
+        if(imgInd == 0) {
+            imgInd = imageSrc.length;
+        }
+        image.src = imageSrc[--imgInd];
+        console.log(imgInd, 'moved left')
+        for(let i=0; i<indicators.length; i++) {
+            if(i == imgInd) {
+                indicators[i].style.backgroundColor = 'black'
+            } else {
+                indicators[i].style.backgroundColor = 'transparent'
+            }
+        }
+    })
+</script>

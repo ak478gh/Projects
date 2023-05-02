@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Menu</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            /* margin: 0; */
+            padding: 0;
+        }
+        .container{
+            display: flex;
+            border: 1px solid;
+            height: 100vh;
+        }
+        #label{
+            font-size: 2vw;
+        }
+        /* #notFound{
+            display: none;
+        } */
+        .menu{
+            width: 20vw;
+            background-color: grey;
+            border: 1px solid;
+            text-align: center;
+        }
+        .menu > input{
+            display: block;
+            width: 100%;
+            padding: 1vw;
+        }
+        .menu > ul > li{
+            border: 1px solid grey;
+            padding: 1vw;
+        }
+        .menu > ul > li > a{
+            text-decoration: none;
+            color: white;
+            font-size: 2vw;
+        }
+        .menu > ul > li:hover{
+            background-color: #637386;
+        }
+        .menu > ul{
+            list-style-type: none;
+            text-align: left;
+            padding: 0;
+            background-color: #001c40;
+        }
+        .content{
+            border: 1px solid;
+            width: 80vw;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <label id="label">Menus</label>
+            <input type="text" id="input" onkeyup="myFunc()" placeholder="Search...">
+            <ul id="menuItems">
+                <!-- <li id="notFound"><a href="">Not Found...</a></li> -->
+                <li><a href=""> Html</a></li>
+                <li><a href=""> Javascript</a></li>
+                <li><a href=""> Data structure</a></li>
+                <li><a href=""> Computer Basics</a></li>
+                <li><a href=""> Python</a></li>
+                <li><a href=""> Java</a></li>
+                <li><a href=""> Documentation</a></li>
+                <li><a href=""> Help</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Some Content Here</h1>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let input, filter, a, li, ul;
+    
+    function myFunc() {
+        let input = document.getElementById('input').value.toUpperCase()
+        console.log(input)
+        ul = document.getElementById('menuItems')
+        li = ul.getElementsByTagName('li');
+        for(let i=0; i<li.length; i++) {
+            a = li[i].getElementsByTagName('a')[0];
+            if(a.innerHTML.toUpperCase().indexOf(input) > -1) {
+                li[i].style.display = 'block';
+            } else {
+                li[i].style.display = 'none';
+            }
+        }
+
+    }
+
+</script>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resp Navbar Dropdown</title>
+	<script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 200vh;
+        }
+        nav{
+            background-color: #111b21 ;
+            display: flex;
+            height: 5vh;
+            position: sticky;
+            top: 0;
+            align-items: center;
+        }
+        nav a{
+            padding: 1vw;
+            font-size: 1.5vw;
+            color: white;
+            text-decoration: none;
+        }
+        nav > div:first-child{
+            /* padding: 1vw; */
+            background-color: green;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #hmi{
+            display: none;
+            font-size: 7vw;
+        }
+        nav #drpdwn i{
+            transform: rotate(90deg);
+            font-size: 1vw;
+        }
+        nav a:hover{
+            background-color: rgb(77, 74, 74);
+        }
+        .body{
+            padding: 1vw;
+        }
+        #drpdwn{
+            position: relative;
+            cursor: pointer;
+        }
+        #drpdwnContent{
+            display: none;
+            position: absolute;
+            z-index: 2;
+            width: 10vw;
+            top: 5vh;
+            background-color: rgb(170, 166, 166);
+            flex-direction: column;
+        }
+        #drpdwn:hover #drpdwnContent{
+            display: flex;
+        }
+
+
+        @media screen and (max-width: 600px) {
+            nav{
+                flex-direction: column;
+                text-align: left;
+                overflow: hidden;
+            }
+            nav >div:first-child{
+                width: 100%;
+            }
+            #hmi{
+                display: block;
+            }
+            nav a{
+                font-size: 5vw;
+            }
+            nav > a i{
+            font-size: 3vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        <div>
+            <a id="active" href="">Home</a>
+            <i id="hmi" class="fa-solid fa-bars"></i>
+        </div>
+        <a href="">News</a>
+        <a href="">Contact</a>
+        <div id="drpdwn">
+            <a id="icon">Dropdown <i class="fa-solid fa-play"></i></a>
+            <div id="drpdwnContent">
+                <a href="">Link 1</a>
+                <a href="">Link 2</a>
+                <a href="">Link 3</a>
+            </div>
+        </div>
+        <a href="">About</a>
+    </nav>
+    <div class="body">
+        <h1>Responsive Topnav with Dropdown</h1>
+        <p>Resize the browser window to see how it works.<br>Hover over the dropdown button to open the dropdown menu.</p>
+    </div>
+</body>
+</html>
+<script>
+    
+    let hmi = document.getElementById('hmi')
+    let nav = document.getElementById('nav')
+    let active = document.getElementById('active')
+    let drpdwn = document.getElementById('drpdwn')
+    let icon = document.getElementById('icon')
+    let flag = false;
+    hmi.addEventListener('click', ()=> {
+        console.log('check')
+        if(flag) {
+            nav.style.height = 'auto'
+            flag = !flag;
+        } else {
+            nav.style.height = '5vh';
+            flag = !flag;
+        }
+    })
+
+    let drpdwnContentVisible = false;
+    
+    icon.addEventListener('click', ()=> {
+        if(drpdwnVisible) {
+            drpdwnContent.style.display = 'none';
+            drpdwnContentVisible = !drpdwnContentVisible;
+        } else {
+            drpdwnContent.style.display = 'flex';
+            drpdwnContentVisible = !drpdwnContentVisible;
+        }
+    })
+</script>

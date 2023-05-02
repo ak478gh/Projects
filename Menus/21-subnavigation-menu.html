@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subnavigation Menu</title>
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            display: flex;
+            background-color: #111b21 ;
+        }
+        nav > button, div{
+            padding: 3vh;
+            border: none;
+            color: white;
+            background-color: #111b21 ;
+        }
+        nav > button:hover{
+            background-color: orange;
+            transition: 0.3s;
+        }
+        nav > div:hover{
+            background-color: orange;
+            transition: 0.3s;
+        }
+        nav > .subnav{
+            display: none;
+            position: absolute;
+            width: 100%;
+            /* overflow: hidden; */
+            background-color: orange;
+            top: 8.7vh;
+        }
+        nav > .subnav > a{
+            text-decoration: none;
+            padding: 3vh;
+            color: white;
+        }
+        nav > .subnav > a:hover{
+            background-color: #dddfe2;
+        }
+        .subnav:hover, #about:hover + #aboutSubnav{
+            display: block;
+        }
+        #services:hover + #servicesSubnav{
+            display: block;
+        }
+        #partner:hover + #partnerSubnav{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>Home</div>
+        <button id="about">About <i class="fa-solid fa-angle-down"></i></button>
+        <div class="subnav" id="aboutSubnav">
+            <a href="">Company</a>
+            <a href="">Team</a>
+            <a href="">Careers</a>
+        </div>
+        <button id="services">Services <i class="fa-solid fa-angle-down"></i></button>
+        <div class="subnav" id="servicesSubnav">
+            <a href="">Bring</a>
+            <a href="">Deliver</a>
+            <a href="">Package</a>
+            <a href="">Express</a>
+        </div>
+        <button id="partner">Partner <i class="fa-solid fa-angle-down"></i></button>
+        <div class="subnav" id="partnerSubnav">
+            <a href="">Link 1</a>
+            <a href="">Link 2</a>
+            <a href="">Link 3</a>
+        </div>
+        <div>Contact</div>
+    </nav>
+</body>
+</html>

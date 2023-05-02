@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoverable Drop Up</title>
+    <style>
+        #drpUpBtn{
+            margin-top: 50px;
+            padding: 1vw 2vw;
+            border: none;
+            color: white;
+            background-color: turquoise;
+        }
+        .dropUp{
+            left: 50%;
+            position: relative;
+            display: inline-block;
+        }
+        .drpUpContent{
+            display: none;
+            width: 110px;
+            position: absolute;
+            bottom: 42px;
+            background-color: rosybrown;
+        }
+        .drpUpContent > a{
+            display: block;
+            text-decoration: none;
+            color: white;
+            padding: 1vw;
+        }
+        .dropUp:hover .drpUpContent{
+            display: block;
+        }
+        #drpUpBtn:hover{
+            background-color: rgb(22, 179, 163);
+        }
+        .drpUpContent a:hover{
+            background-color: #dddfe2 ;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hoverable Drop Up</h1>
+    <p>Example Text...</p>
+    <p>Example Text...</p>
+    <p>Example Text...</p>
+    <p>Move the mouse over the button to open the drop up menu.</p>
+    <div class="dropUp">
+        <button id="drpUpBtn">DropUp</button>
+        <div class="drpUpContent">
+            <a href="">Link 1</a>
+            <a href="">Link 2</a>
+            <a href="">Link 3</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Share Button</title>
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <style>
+         .container{
+            position: relative;
+            border: 1px solid;
+            height: 50vh;
+            background-color: #001c40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1vw;
+        }
+        .container > i{
+            border: 1px solid;
+            padding: 1vw;
+            font-size: large;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            color: white;
+            width: 50px;
+            border-radius: 50%;
+        }
+        #snapchat{
+            position: absolute;
+            transition: 0.3s;
+            /* background-color: yellow; */
+            z-index: 1;
+        }
+        #twitter{
+            position: absolute;
+            transition: 0.3s;
+            /* background-color: blue; */
+            z-index: 1;
+        }
+        #instagram{
+            position: absolute;
+            transition: 0.3s;
+            /* background-color: pink; */
+            z-index: 1;
+        }
+        #instagram:hover {
+            background-color: pink;
+            color: black;
+        }
+        #twitter:hover {
+            background-color: blue;
+            color: black;
+        }
+        #snapchat:hover {
+            background-color: yellow;
+            color: black;
+        }
+        #xmark{
+            position: absolute;
+            transition: 0.3s;
+            background-color: black;
+            z-index: 2;
+        }
+        #share{
+            position: absolute;
+            background-color: black;
+            transition: 0.3s;
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Creating a button interactive animation</h1>
+    <div class="container">
+        <i id="share" class="fa-solid fa-share-nodes"></i>
+        <i id="xmark" class="fa-sharp fa-solid fa-xmark"></i>
+        
+        <i id="twitter" class="fa-brands fa-twitter"></i>
+        <i id="snapchat" class="fa-brands fa-snapchat"></i>
+        <i id="instagram" class="fa-brands fa-instagram"></i>
+    </div>
+</body>
+</html>
+
+<script>
+    let xmark = document.getElementById('xmark')
+    let share = document.getElementById('share')
+    let instagram = document.getElementById('instagram')
+    let twitter = document.getElementById('twitter')
+    let snapchat = document.getElementById('snapchat')
+    let flag = true;
+    share.addEventListener('click', ()=> {
+        if(flag) {
+            xmark.style.zIndex = '3';
+            twitter.style.transform = 'translateX(100px)';
+            snapchat.style.transform = 'translateX(-100px)';
+            instagram.style.transform = 'translateY(-100px)';
+            flag = !flag;
+        }
+    })
+
+    xmark.addEventListener('click', ()=> {
+        if(!flag) {
+            xmark.style.zIndex = '2';
+            twitter.style.transform = 'translateX(0px)';
+            snapchat.style.transform = 'translateX(0px)';
+            instagram.style.transform = 'translateY(0px)';
+            flag = !flag;
+        }
+    })
+</script>

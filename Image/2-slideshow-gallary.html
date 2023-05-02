@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow Gallary</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .bigImg{
+        width: 90vw;
+        margin: auto;
+    }
+    .bigImg > img{
+        width: 100%;
+    }
+    .name{
+        height: 10vh;
+        background-color: #001c40 ;
+        font-size: 30px;
+        padding: 1vw;
+        color: white;
+        text-align: center;
+    }
+    .album{
+        display: grid;
+        width: 90vw;
+        margin: auto;
+        grid-template-columns: repeat(6, 1fr);
+        height: 100px;
+    }
+    .album > img{
+        width: 100%;
+        border: 1px solid;
+        opacity: 60%;
+        cursor: pointer;
+    }
+    .album > img:hover{
+        opacity: 100%;
+    }
+</style>
+<body>
+    <div class="bigImg">
+        <img id="bigImg" src="https://www.w3schools.com/howto/img_woods_wide.jpg" alt="">
+    </div>
+    <div id="name" class="name">
+        Some text Here
+    </div>
+    <div class="album">
+        <img src="https://www.w3schools.com/howto/img_woods_wide.jpg" alt="" title="The woods">
+        <img src="https://www.w3schools.com/howto/img_5terre_wide.jpg" alt="" title="Cinque Terre">
+        <img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" alt="" title="Mountains and fjords">
+        <img src="https://www.w3schools.com/howto/img_lights_wide.jpg" alt="" title="Northern Lights">
+        <img src="https://www.w3schools.com/howto/img_nature_wide.jpg" alt="" title="Nature and sunrise">
+        <img src="https://www.w3schools.com/howto/img_snow_wide.jpg" alt="" title="Snowy Mountains">
+    </div>
+</body>
+</html>
+<script>
+        let album = document.getElementsByClassName('album');
+        let bigImg = document.getElementById('bigImg');
+        let name = document.getElementById('name')
+        // console.log(album[0].children.length, 'check');
+        // name.innerHTML = album[0].children[0].title;
+        // album[0].children[0].style.opacity = '100%';
+
+        album[0].addEventListener('click', (event)=> {
+            bigImg.src = event.target.src
+            name.innerHTML = event.target.title;
+
+            for(let i=0; i<album[0].children.length; i++) {
+                if(album[0].children[i].opacity == '60%') {
+                    album[0].children[i].opacity = '100%';
+                } else {
+                    album[0].children[i].opacity = '60%';
+                }
+            }
+        })
+</script>

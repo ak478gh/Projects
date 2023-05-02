@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Modal</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .img {
+            width: 300px;
+            opacity: 90%;
+            margin: auto;
+        }
+        .img:hover{
+            opacity: 100%;
+            cursor: pointer;
+        }
+        .caption, .close{
+            /* display: none; */
+        }
+        .modal, .caption, .close{
+            display: none;
+        }
+        .modal{
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .9);
+            /* border: 1px solid; */
+            height: 100vh;
+            width: 100vw;
+        }
+        #modalContent{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .close{
+            color: white;
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            padding: 1vh;
+            z-index: 2;
+            font-size: 50px;
+            right: 0;
+        }
+        .caption{
+            color: white;
+            /* position: absolute; */
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2>Image Modal</h2>
+    <p>In this example, we use CSS to create a modal (dialog box) that is hidden by default.</p>
+    <p>We use JavaScript to trigger the modal and to display the current image inside the modal when it is clicked on. Also note that we use the value from the image's "alt" attribute as an image caption text inside the modal.</p>
+
+    <img id="img" class="img" src="https://www.w3schools.com/howto/img_snow.jpg" alt="snow hill">
+    
+    <div class="modal" id="modal">
+        <span class="close">&times;</span>
+        <img id="modalContent" src="https://www.w3schools.com/howto/img_snow.jpg" alt="">
+        <div class="caption">Caption Here</div>
+    </div>
+</body>
+</html>
+
+<script>
+    let modal = document.getElementById('modal')
+    let img = document.getElementById('img')
+    img.addEventListener('click', ()=> {
+        modal.style.display = 'block'
+    })
+</script>

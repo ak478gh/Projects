@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Menu</title>
+
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <style>
+    *{
+        margin: 0;
+        /* box-sizing: border-box; */
+    }
+    nav{
+        overflow: hidden;
+    }
+    nav a{
+        text-decoration: none;
+        padding: 1vw;
+        display: block;
+        font-size: 20px;
+    }
+    nav a:hover{
+        background-color: #c0bdbd;
+    }
+    .active{
+        /* box-sizing: border-box; */
+        background-color: rgb(34, 163, 77);
+        display: flex;
+        /* padding: 0 2vw; */
+        overflow: hidden;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .active i{
+        padding: 1vw 2vw;
+        font-size: 20px;
+        background-color: black;
+        color: white;
+    }
+    .active a{
+        width: 100vw;
+    }
+    nav #drpdwn{
+        height: 0px;
+        transition: all 0.5s ease;
+    }
+    
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="active">
+            <a href="">Logo</a>
+            <i id="icon" class="fa-solid fa-bars"></i>
+        </div>
+        <div id="drpdwn">
+            <a href="">Home</a>
+            <a href="">Contact</a>
+            <a href="">About Us</a>
+        </div>
+    </nav>
+    <h1>Vertical Mobile Navbar</h1>
+    <p>This example demonstrates how a navigation menu on a mobile/smart phone could look like.</p>
+    <p>Click on the hamburger menu (three bars) in the top right corner, to toggle the menu.</p>
+</body>
+</html>
+
+<script>
+    let icon = document.getElementById('icon');
+    let drpdwn = document.getElementById('drpdwn');
+    let flag = true;
+
+    icon.addEventListener('click', ()=> {
+        if(flag) {
+            drpdwn.style.height = 'auto';
+            flag = !flag;
+        } else {
+            drpdwn.style.height = '0';
+            flag = !flag;
+        }
+    })
+</script>
