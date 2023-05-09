@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        #modal{
+            display: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #modalContent{
+            text-align: center;
+            position: relative;
+            padding: 1vw;
+            width: 50%;
+            background-color: #fff;
+            margin: 30vh auto;
+            animation-name: animatetop;
+            animation-duration: 0.3s;
+        }
+        @keyframes animatetop {
+            from {top: -100px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+        .btns{
+            display: flex;
+            width: 90%;
+            margin: auto;
+        }
+        .btns > button{
+            width: 50%;
+            border: none;
+            padding: 1vw 0;
+        }.btns > button:hover{
+            opacity: 0.9;
+        }
+        .btns > button:nth-child(2){
+            background-color: tomato;
+        }
+        .btns > button:nth-child(1){
+            background-color: grey;
+        }
+        #modal:focus{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="openBtn">OPEN MODAL</button>
+
+    <div id="modal">
+        <div id="modalContent">
+            <h2>Delete Account</h2>
+            <p>Are you sure you want to delete your account?</p>
+            <div class="btns">
+                <button>Cancel</button><button>Delete</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let btns = document.getElementsByClassName('btns')
+    let modal = document.getElementById('modal')
+    let openBtn = document.getElementById('openBtn')
+    let modalContent = document.getElementById('modalContent')
+
+    // console.log(close[0])
+    
+    openBtn.addEventListener('click', ()=> {
+        modal.style.display = 'block';
+    })
+
+    btns[0].addEventListener('click', ()=> {
+        modal.style.display = 'none';
+    })
+
+    // modal.addEventListener('click', ()=> {
+    //     modal.style.display = 'none';
+    // })
+
+
+</script>

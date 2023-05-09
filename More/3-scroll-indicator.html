@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Indicator</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .head{
+            position: sticky;
+            top: 0;
+            background-color: grey;
+            padding: 1vw;
+            text-align: center;
+        }
+        .scroll-bar{
+            position: sticky;
+            top: 8.3vh;
+            height: 1vw;
+            background-color: rgb(224, 221, 221);
+        }
+        .body{
+            height: 200vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h2>Scroll Indicator</h2>
+    </div>
+    <div class="scroll-bar">
+        <div class="bar"></div>
+    </div>
+
+    <div class="body">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, corrupti ut aspernatur veritatis suscipit reiciendis. Voluptates odio distinctio hic minima dicta quas labore pariatur voluptatibus fuga iusto quisquam tempora totam qui expedita temporibus dolore eius, asperiores omnis. Eaque iure ipsam incidunt omnis. Ex ipsa repudiandae ullam officiis aliquam rerum quibusdam, ratione praesentium nam incidunt voluptatum. Id vel laudantium error a, officiis aspernatur molestiae ullam aliquam, dolorem quos hic dolore enim rem dolorum numquam, sapiente quibusdam saepe necessitatibus nisi laborum? Sequi illo similique modi, sunt laborum est minus eligendi hic debitis quisquam earum cupiditate esse quibusdam assumenda vero ab voluptatum maxime, dolores ea fugiat odio laboriosam. Ducimus qui molestiae blanditiis corporis in quis eos, ut mollitia, architecto at commodi consequuntur vel neque maxime sapiente eaque autem? Sunt eius at magni facere natus recusandae unde, velit sapiente tenetur voluptate perspiciatis reiciendis totam aliquam aliquid nesciunt illo et distinctio repudiandae blanditiis quasi repellendus reprehenderit beatae excepturi! Ut, quibusdam facere sint, consectetur cupiditate recusandae consequatur obcaecati deleniti voluptates dolorum quae maiores iste quas iure rerum vel accusamus aliquam. Id dolor, ut omnis quia veniam error quod cumque ipsum voluptatum quam excepturi, porro nobis! Officiis minus, veritatis perferendis quas repellendus cumque iste dignissimos rerum amet.
+    </div>
+</body>
+</html>
+<script>
+    window.onscroll = ()=> {myFunc()}
+    console.log(document.documentElement.scrollTop)
+    console.log(document.documentElement.scrollHeight)
+    console.log(document.documentElement.clientHeight)
+    const myFunc = ()=> {
+        let winScroll = document.body.scrollTop
+        console.log(winScroll)
+        
+    }
+</script>

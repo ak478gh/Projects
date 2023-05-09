@@ -2,89 +2,98 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tabs</title>
-	<style type="text/css">
+	<style>
 		*{
-			margin: 0;
+			/* margin: 0; */
 			padding: 0;
 		}
-		.tablinks{
-			border: 1px solid;
-			padding: 10px;
+		.cont > nav{
+			overflow: hidden;
+			border: 1px solid #ccc;
+			border-bottom: none;
+			background-color: #f1f1f1;
 		}
-		.tablinks a{
-			padding: 10px;
-			font-size: 20px;
+		.cont > nav .tabs{
 			text-decoration: none;
+			float: left;
+			cursor: pointer;
+			border: none;
+			transition: 0.3s;
+			font-size: 1.5vw;
+			padding: 1vw;
 		}
-		#content{
-			border: 1px solid;
-			padding: 20px;
+		.cont > nav .tabs:hover{
+			background-color: #ddd;
 		}
-		#content p{
-			margin-top: 10px;
+		.cont > nav > .active{
+			background-color: rgb(192, 188, 188);
 		}
-		.tab{
+		.content{
+			/* padding: 1vw; */
+			border: 1px solid #ccc;
+		}
+		.content > .page{
+			padding: 1vw;
+			/* border: 1px solid; */
 			display: none;
+			border-top: none;
 		}
-
-
-	</style>
+		.page{
+			transition: all 0.5s;
+		}
+		</style>
 </head>
 <body>
-	<div id="container">
-		<div class="tablinks">
-			<a href="#">London</a>
-			<a href="#">Paris</a>
-			<a href="#">Tokyo</a>
-		</div>
-		<div id="content">
-			<div  id="london" class="tab">
-				<h2>London</h2>
+	<div class="cont">
+		<nav>
+			<button class="tabs active">London</button>
+			<button class="tabs">Paris</button>
+			<button class="tabs">Tokyo</button>
+		</nav>
+		<div class="content">
+			<div class="page">
+				<h3>London</h3>
 				<p>London is the capital city of England</p>
 			</div>
-			<div  id="paris" class="tab">
-				<h2>Paris</h2>
+			<div class="page">
+				<h3>Paris</h3>
 				<p>Paris is the capital city of France</p>
 			</div>
-			<div  id="tokyo" class="tab">
-				<h2>Tokyo</h2>
+			<div class="page">
+				<h3>Tokyo</h3>
 				<p>Tokyo is the capital city of Japan</p>
 			</div>
 		</div>
 	</div>
 </body>
 </html>
-<script type="text/javascript">
-	const links = document.getElementsByTagName('a')
-	const tabs = document.getElementsByClassName('tab')
-	tabs[0].style.display = 'block';
+<script>
+	let content = document.getElementsByClassName('content');
+	let nav = document.getElementsByTagName('nav');
+	// console.log(nav[0].children[0].innerHTML);
+	// console.log(content[0].children[2].children[0].innerHTML);
 
-	for(let i=0; i<links.length; i++) {
-
-		links[i].addEventListener('click', function() {
-			this.classList.toggle('active');
-			console.log(links)
-		})
-	}
-
-	function check() {
-		for(let i=0; i<tabs.length; i++) {
-		switch(tabs[i].innerText) {
-			case 'London':
-				tabs[i].style.display = 'block';
-				break;
-			case 'Paris':
-				tabs[i].style.display = 'block';
-				break;
-			case 'Tokyo':
-				tabs[i].style.display = 'block';
-				break;
+	nav[0].addEventListener('click', (event)=> {
+		// console.log(event.target);
+		let elem = event.target.innerHTML
+		console.log('elem', elem);
+		for(let i=0; i<content[0].children.length; i++) {
+			// console.log(content[0].children[i].children[0].innerHTML)
+			let contentElem = content[0].children[i].children[0].innerHTML;
+			// console.log(elem, contentElem);
+			if(elem == contentElem) {
+				console.log(elem, contentElem)
+				content[0].children[i].style.display = 'block';
+				// break;
+			} else {
+				console.log(i, content[0].children[i].children[0].innerHTML);
+				content[0].children[i].style.display = 'none';
+			}
 		}
-	}
-	}
-	
+	})
 
-	console.log(links)
+	// console.log(content[0].children[0])
 </script>

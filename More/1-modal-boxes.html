@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        #modal{
+            display: none;
+            background-color: rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #modalContent{
+            position: relative;
+            padding: 1vw;
+            width: 50%;
+            border: 1px solid;
+            margin: 30vh auto;
+            animation-name: animatetop;
+            animation-duration: 0.3s;
+        }
+        @keyframes animatetop {
+            from {top: -100px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+        .close{
+            float: right;
+            padding: 0 1vw;
+            font-size: 30px;
+        }
+        #modal:focus{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="openBtn">OPEN MODAL</button>
+
+    <div id="modal">
+        <div id="modalContent">
+            <span class="close">&times;</span>
+            <h2>This is a modal</h2>
+            <p>Click on close or click outside of this box to close the modal</p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let close = document.getElementsByClassName('close')
+    let modal = document.getElementById('modal')
+    let openBtn = document.getElementById('openBtn')
+    let modalContent = document.getElementById('modalContent')
+
+    // console.log(close[0])
+    
+    openBtn.addEventListener('click', ()=> {
+        modal.style.display = 'block';
+    })
+
+    close[0].addEventListener('click', ()=> {
+        modal.style.display = 'none';
+    })
+
+    modal.addEventListener('click', ()=> {
+        modal.style.display = 'none';
+    })
+
+
+</script>

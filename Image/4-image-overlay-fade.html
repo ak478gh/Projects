@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Overlay Fade</title>
+    <style>
+        *{
+            font-family: sans-serif;
+            margin: 0;
+        }
+        .container{
+            width: 50%;
+            margin: auto;
+            display: flex;
+            gap: 5vw;
+        }
+        .card{
+            position: relative;
+        }
+        .card > .img {
+            background-color: #6dcff6 ;
+        }
+        .card > .img > img{
+            width: 100%;
+            transition: 0.5s;
+        }
+        .card h4{
+            position: absolute;
+            color: white;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            transition: 0.5s;
+            transform: translate(-50%, -50%);
+        }
+        .img:hover + h4{
+            opacity: 1;
+        }
+        #c1:hover img{
+            opacity: 0;
+        }
+        #c2:hover img{
+            opacity: 0.5;
+        }
+        #c2 + h4{
+            padding: 1vw;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Overlay Fade</h1>
+    <div class="container">
+        <div class="card">
+            <h3>Example</h3>
+            <p>Fade in text:</p>
+            <div id="c1" class="img">
+                <img src="https://www.w3schools.com/w3css/img_avatar3.png" alt="">
+            </div>
+            <h4>Hello World</h4>
+        </div>
+
+        <div class="card">
+            <h3>Example</h3>
+            <p>Fade in text:</p>
+            <div id="c2" class="img">
+                <img src="https://www.w3schools.com/w3css/img_avatar3.png" alt="">
+            </div>
+            <h4>Hello World</h4>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+</script>
