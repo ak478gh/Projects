@@ -4,36 +4,44 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Tabs</title>
+	<title>Hover Tabs</title>
 	<style>
 		*{
 			/* margin: 0; */
 			padding: 0;
 		}
+        .cont{
+            display: flex;
+        }
 		.cont > nav{
 			overflow: hidden;
-			border: 1px solid #ccc;
+            width: 20vw;
 			border-bottom: none;
-			background-color: #f1f1f1;
+            display: flex;
+            flex-direction: column;
+			/* background-color: #f1f1f1; */
 		}
 		.cont > nav .tabs{
 			text-decoration: none;
 			float: left;
 			cursor: pointer;
 			border: none;
+            text-align: left;
 			transition: 0.3s;
+            background-color: #ccc;
 			font-size: 1.5vw;
 			padding: 1vw;
 		}
 		.cont > nav .tabs:hover{
-			background-color: #ddd;
+			/* background-color: #ddd; */
 		}
 		.cont > nav > .active{
-			background-color: rgb(192, 188, 188);
+			/* background-color: rgb(192, 188, 188); */
 		}
 		.content{
 			/* padding: 1vw; */
 			border: 1px solid #ccc;
+            width:80vw;
 		}
 		.content > .page{
 			padding: 1vw;
@@ -42,7 +50,7 @@
 			border-top: none;
 		}
 		.page{
-			transition: 0.5s;
+			transition: all 0.5s;
 		}
 		</style>
 </head>
@@ -73,27 +81,24 @@
 <script>
 	let content = document.getElementsByClassName('content');
 	let nav = document.getElementsByTagName('nav');
-	// console.log(nav[0].children[0].innerHTML);
-	// console.log(content[0].children[2].children[0].innerHTML);
+    
+    nav[0].children[0].style.backgroundColor = '#bbb';
+	content[0].children[0].style.display = 'block';
 
-	nav[0].addEventListener('click', (eve)=> {
-		console.log(eve.key);
-		let elem = eve.target.innerHTML
-		console.log('elem', elem);
+	nav[0].addEventListener('mouseover', (event)=> {
+
+		let elem = event.target.innerHTML;
+
 		for(let i=0; i<content[0].children.length; i++) {
-			// console.log(content[0].children[i].children[0].innerHTML)
 			let contentElem = content[0].children[i].children[0].innerHTML;
-			// console.log(elem, contentElem);
 			if(elem == contentElem) {
-				console.log(elem, contentElem)
 				content[0].children[i].style.display = 'block';
-				// break;
+                nav[0].children[i].style.backgroundColor = '#bbb';
 			} else {
-				console.log(i, content[0].children[i].children[0].innerHTML);
 				content[0].children[i].style.display = 'none';
+                nav[0].children[i].style.backgroundColor = '#ccc';
 			}
 		}
 	})
-
-	// console.log(content[0].children[0])
+    
 </script>

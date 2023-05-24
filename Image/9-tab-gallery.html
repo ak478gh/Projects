@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Gallery</title>
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        .gallery{
+            height: 100px;
+            padding: 5px;
+            border-radius: 5px;
+            width: fit-content;
+            margin: auto;
+        }
+        .gallery img{
+            height: 100%;
+            cursor: pointer;
+        }
+        .bigImg{
+            width: 60%;
+            display: none;
+            position: relative;
+            border-radius: 5px;
+            margin: auto;
+            padding: 5px;
+        }
+        .bigImg img{
+            width: 100%;
+        }
+        #cross{
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+        }
+        #caption{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tab Gallery</h1>
+    <p>Click on an image to expand it:</p>
+
+    <div class="container">
+        <div class="gallery">
+            <img src="https://www.w3schools.com/howto/img_nature.jpg" alt="nature">
+            <img src="https://www.w3schools.com/howto/img_snow.jpg" alt="snow">
+            <img src="https://www.w3schools.com/howto/img_mountains.jpg" alt="mountains">
+            <img src="https://www.w3schools.com/howto/img_lights.jpg" alt="lights">
+        </div>
+        <div class="bigImg">
+            <img src="https://www.w3schools.com/howto/img_lights.jpg" alt="">
+            <i id="cross" class="fa-solid fa-xmark"></i>
+            <span id="caption">text here</span>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let gallery = document.getElementsByClassName('gallery')[0];
+    let bigImg = document.getElementsByClassName('bigImg')[0];
+    let cross = document.getElementById('cross');
+    let caption = document.getElementById('caption');
+
+    gallery.addEventListener('click', (event)=> {
+        let targetImgSrc = event.target.src;
+        bigImg.style.display = 'block';
+        bigImg.children[0].src = targetImgSrc;
+        caption.innerHTML = event.target.alt;
+    })
+    cross.addEventListener('click', ()=>{
+        bigImg.style.display = 'none'
+    })
+</script>

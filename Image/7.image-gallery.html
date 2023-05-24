@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 10px;
+            padding: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        .card{
+            text-align: center;
+            /* font-size: 10px; */
+        }
+        .card img{
+            width: 100%;
+        }
+        /* big Image */
+        .bigImg{
+            position: absolute;
+            background-color: #444;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .bigImg img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            width: 30vw;
+            margin: auto;
+        }
+        @media screen and (max-width:800px) {
+            .container{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media screen and (max-width:500px) {
+            .container{
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Responsive Image Gallery</h2>
+
+    <h4>Resize the browser window to see the effect.</h4>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://www.w3schools.com/howto/img_5terre.jpg" alt="">
+            <p>Add a description of the image here
+            </p>
+        </div>
+        <div class="card">
+            <img src="https://www.w3schools.com/howto/img_forest.jpg" alt="">
+            <p>Add a description of the image here
+            </p>
+        </div>
+        <div class="card">
+            <img src="https://www.w3schools.com/howto/img_lights.jpg" alt="">
+            <p>Add a description of the image here
+            </p>
+        </div>
+        <div class="card">
+            <img src="https://www.w3schools.com/howto/img_mountains.jpg" alt="">
+            <p>Add a description of the image here
+            </p>
+        </div>
+    </div>
+    <div class="bigImg">
+        <img src="https://www.w3schools.com/howto/img_5terre.jpg" alt="">
+    </div>
+</body>
+</html>
+<script>
+    let container = document.getElementsByClassName('container')[0];
+
+    let bigImg = document.getElementsByClassName('bigImg')[0];
+
+    container.addEventListener('click', (event)=> {
+        targetImgSrc = event.target.src;
+        bigImg.children[0].src = targetImgSrc;
+        bigImg.style.display = 'block';
+        console.log(targetImgSrc);
+    })
+</script>

@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body{
+    padding: 10px;
+}
+.heading{
+    border-radius: 5px 5px 0 0;
+}
+.heading h2{
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+.heading p{
+    margin-bottom: 10px;
+}
+.container{
+    background-color: #ddd;
+    width: 90%;
+    margin: auto;
+    padding: 30px 10px;
+}
+.container .category{
+    padding: 5px;
+}
+.category button{
+    padding: 10px 15px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.category button:hover{
+    background-color: #ccc;
+}
+.container .album{
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.album .All{
+    background-color: #fff;
+    padding: 15px;
+}
+.All img{
+    width: 100%;
+}
+.All h3{
+    margin: 10px 0;
+    font-weight: 100;
+}
+.All p{
+    margin: 15px 0;
+}

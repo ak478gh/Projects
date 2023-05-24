@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Gallery</title>
+    <style>
+        *{
+            text-align: center;
+        }
+        .gallery{
+            height: 100px;
+            padding: 1vw;
+            width: fit-content;
+            margin: auto;
+            background-color: #333;
+        }
+        .gallery > img{
+            height: 100%;
+            cursor: pointer;
+        }
+        .gallery > img:hover{
+            opacity: 0.5;
+        }
+        .bigImg{
+            height: 450px;
+            padding: 1vw;
+            width: 50vw;
+            margin: auto;
+            background-color: #333;
+        }
+        .bigImg > img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <p>Click on an image to expand it:</p>
+    <div class="gallery">
+        <img src="https://www.w3schools.com/howto/img_nature.jpg" alt="">
+        <img src="https://www.w3schools.com/howto/img_snow.jpg" alt="">
+        <img src="https://www.w3schools.com/howto/img_mountains.jpg" alt="">
+        <img src="https://www.w3schools.com/howto/img_lights.jpg" alt="">
+    </div>
+    <div class="bigImg">
+        <img src="" alt="">
+    </div>
+</body>
+</html>
+<script>
+    let gallery = document.getElementsByClassName('gallery')
+    let bigImg = document.getElementsByClassName('bigImg')
+    gallery[0].addEventListener('click', (event)=> {
+        let imgSrc = event.target.src
+        bigImg[0].children[0].src = imgSrc
+    })
+</script>

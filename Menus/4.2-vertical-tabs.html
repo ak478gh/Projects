@@ -10,10 +10,16 @@
 			/* margin: 0; */
 			padding: 0;
 		}
+        .cont{
+            display: flex;
+        }
 		.cont > nav{
 			overflow: hidden;
+            width: 20vw;
 			border: 1px solid #ccc;
 			border-bottom: none;
+            display: flex;
+            flex-direction: column;
 			background-color: #f1f1f1;
 		}
 		.cont > nav .tabs{
@@ -21,6 +27,7 @@
 			float: left;
 			cursor: pointer;
 			border: none;
+            text-align: left;
 			transition: 0.3s;
 			font-size: 1.5vw;
 			padding: 1vw;
@@ -34,6 +41,7 @@
 		.content{
 			/* padding: 1vw; */
 			border: 1px solid #ccc;
+            width:80vw;
 		}
 		.content > .page{
 			padding: 1vw;
@@ -42,7 +50,7 @@
 			border-top: none;
 		}
 		.page{
-			transition: 0.5s;
+			transition: all 0.5s;
 		}
 		</style>
 </head>
@@ -73,12 +81,12 @@
 <script>
 	let content = document.getElementsByClassName('content');
 	let nav = document.getElementsByTagName('nav');
-	// console.log(nav[0].children[0].innerHTML);
+	console.log(nav);
 	// console.log(content[0].children[2].children[0].innerHTML);
 
-	nav[0].addEventListener('click', (eve)=> {
-		console.log(eve.key);
-		let elem = eve.target.innerHTML
+	nav[0].addEventListener('click', (event)=> {
+		// console.log(event.target);
+		let elem = event.target.innerHTML
 		console.log('elem', elem);
 		for(let i=0; i<content[0].children.length; i++) {
 			// console.log(content[0].children[i].children[0].innerHTML)

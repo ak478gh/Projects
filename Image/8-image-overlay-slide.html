@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Overlay Zoom</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        .container{
+            width: fit-content;
+            padding: 10px;
+            height: 400px;
+            margin: auto;
+            display: flex;
+            gap: 10px;
+            background-color: rgb(236, 234, 234);
+            border-radius: 5px;
+        }
+        .container > .background{
+            width: 300px;
+            border: 1px solid;
+            position: relative;
+            height: 500px;
+        }
+        .background .back{
+            background-color: rgb(0, 164, 240);
+            position: absolute;
+            /* z-index: 1; */
+            transition: 0.3s;
+            /* height: 0; */
+        }
+        .background img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background">
+            <h3>Example</h3>
+            <p>Fade in text:</p>
+            <div id="back1" class="back1">
+                <!-- <p id="text1">Hello User</p> -->
+            </div>
+            <img id="img1" src="https://www.w3schools.com/w3css/img_avatar3.png" alt="Image1">
+        </div>
+
+        <div class="background">
+            <h3>Example</h3>
+            <p>Fade in a:</p>
+            <div class="back">
+                <!-- <p id="text2">Hello User</p> -->
+            </div>
+            <img id="img2" src="https://www.w3schools.com/w3css/img_avatar3.png" alt="Image2">
+        </div>
+    </div>
+</body>
+</html>

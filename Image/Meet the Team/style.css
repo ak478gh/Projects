@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    font-family: sans-serif;
+}
+.container{
+    border: 1px solid;
+    display: grid;
+    padding: 5px;
+    width: 70%;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 5px;
+}
+.container .card{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 360px;
+    font-size: 14px;
+}
+.container .card img{
+    width: 100%;
+}
+.card .textBox{
+    padding: 15px;
+}
+.card .textBox h2{
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+.card .textBox .title{
+    color: grey;
+    margin-bottom: 10px;
+}
+.card .textBox .email{
+    margin: 15px 0;
+}
+.card .textBox button{
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 10px 5px;
+    background-color: #6d6b6b;
+}

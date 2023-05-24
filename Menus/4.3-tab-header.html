@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Header</title>
+</head>
+<style>
+    *{
+        margin: 0;
+    }
+    .cont{
+        padding: 1vw;
+    }
+    .content .page{
+        /* border: 1px solid; */
+        height: 50vh;
+        text-align: center;
+    }
+    #page1{
+        background-color: green;
+    }
+    #page2{
+        display: none;
+        background-color: tomato;
+    }
+    #page3{
+        display: none;
+        background-color: blueviolet;
+    }
+    #page4{
+        display: none;
+        background-color: saddlebrown;
+    }
+    nav{
+        margin-top: -6.5vh;
+        /* border: 1px solid; */
+    }
+    nav button{
+        background-color: #ccc;
+        padding: 1vw;
+        float: left;
+        border: none;
+        cursor: pointer;
+        width: 25%;
+    }
+    nav .tab:hover{
+        background-color: #777;
+    }
+</style>
+<body>
+    <div class="cont">
+        <div class="content">
+            <div  id="page1" class="page">
+                <h3>London</h3>
+                <p>London is the capital city of England</p>
+            </div>
+            <div id="page2" class="page">
+                <h3>Paris</h3>
+                <p>Paris is the capital city of France</p>
+            </div>
+            <div id="page3" class="page">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital city of Japan</p>
+            </div>
+            <div id="page4" class="page">
+                <h3>Oslo</h3>
+                <p>Oslo is the capital city of Norway</p>
+            </div>
+        </div>
+        <nav>
+            <button class="tab">London</button>
+            <button class="tab">Paris</button>
+            <button class="tab">Tokyo</button>
+            <button class="tab">Oslo</button>
+        </nav>
+    </div>
+</body>
+</html>
+<script>
+    let nav = document.getElementsByTagName('nav');
+    let page = document.getElementsByClassName('page');
+    // console.log(page[0].children[0].innerHTML);
+    console.log(nav[0].children)
+
+    nav[0].addEventListener('click', (event)=> {
+        let elem = event.target.innerHTML;
+        // console.log(elem);
+        for(let i=0; i<page.length; i++) {
+            if(elem == page[i].children[0].innerHTML) {
+                // console.log(elem, page[i].children[0].innerHTML);
+                page[i].style.display = 'block';
+                event.target.style.backgroundColor = 'transparent'
+            } else {
+                // console.log(i, page[i].children[0].innerHTML);
+                page[i].style.display = 'none';
+                // console.log(i, event.target.innerHTML);
+                console.log(nav[0].children[i].innerHTML)
+                nav[0].children[i].style.backgroundColor = '#ccc';
+            }
+        }
+    })
+</script>
