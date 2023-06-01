@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom checkbox/Radio</title>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        .container{
+            width: 50%;
+            border: 1px solid;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .container .columns{
+            width: 30%;
+            display: flex;
+            border: 1px solid;
+            padding: 10px;
+            flex-direction: column;
+        }
+        .columns label{
+            border: 1px solid;
+            display: flex;
+            align-items:center;
+            position: relative;
+        }
+        .columns input{
+            margin-right: 10px;
+            /* opacity: 0; */
+        }
+        .container .checkbox div{
+            border-radius: 5px;
+        }
+        .columns input:checked + div{
+            background-color: #ccc;
+        }
+        .columns input:checked{
+            background-color: #fc1919;
+            position: absolute;
+            z-index: 1;
+            
+        }
+        .columns div{
+            display: inline-block;
+            position: absolute;
+            border: 1px solid;
+            width: 10px;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="columns">
+            <p>Default</p>
+            <label><input type="checkbox"><div></div>One</label>
+            <label><input type="checkbox"><div></div>Two</label>
+            <br>
+            <label><input type="radio" name="myRadio"><div></div>Three</label>
+            <label><input type="radio" name="myRadio"><div></div>Four</label>
+
+        </div>
+        <div class="columns checkbox">
+            <p>Custom checkbox:</p>
+            <label><input type="checkbox"><div></div>One</label>
+            <label><input type="checkbox"><div></div>Two</label>
+            <label><input type="checkbox"><div></div>Three</label>
+            <label><input type="checkbox"><div></div>Four</label>
+        </div>
+        <div class="columns">
+            <p>Custom radio button:</p>
+            <label><input type="radio" name="myRadio2"><div></div>One</label>
+            <label><input type="radio" name="myRadio2"><div></div>Two</label>
+            <label><input type="radio" name="myRadio2"><div></div>Three</label>
+            <label><input type="radio" name="myRadio2"><div></div>Four</label>
+        </div>
+    </div>
+</body>
+</html>

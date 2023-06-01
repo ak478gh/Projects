@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Form</title>
+
+    <style>
+        *{
+            box-sizing:border-box;
+            font-family: sans-serif;
+        }
+        .container{
+            width: 60%;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid;
+            position: relative;
+            height: 500px;
+        }
+        form{
+            position: absolute;
+            z-index: 1;
+            right: 10px;
+            bottom: 10px;
+            width: 30%;
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc
+        }
+        form input{
+            background-color: #eee;
+            width: 100%;
+            margin-top: 5px;
+            border: 1px solid #bbb;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+        form button{
+            margin-bottom: 5px;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            padding: 10px;
+            width:16vw;
+        }
+        form #login{
+            background-color: #36bb8a;
+        }
+        form #close{
+            background-color: tomato;
+        }
+        #open{
+            position: absolute;
+            right: 23px;
+            bottom: 26px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 9px;
+            /* width: 220px; */
+            width:15.99vw;
+            border: 1px solid #bbb;
+            background-color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Popup Form</h1>
+        <p>Click on the button at the bottom of this page to open the login form.</p>
+        <p>Note that the button and the form is fixed - they will always be positioned to the bottom of the browser window.</p>
+
+        <form action="">
+            <h3>Login</h3>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter Email">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter Password">
+
+            <button id="login">Login</button>
+            <button id="close">Close</button>
+            
+        </form>
+        <button id="open">Open</button>
+    </div>
+</body>
+</html>
+
+<script>
+    let open = document.getElementById('open');
+    let close = document.getElementById('close');
+    let form = document.getElementsByTagName('form')[0];
+    console.log(form);
+
+    open.addEventListener('click', (event)=> {
+        event.preventDefault();
+        form.style.display = 'block'
+    })
+
+    close.addEventListener('click', (event)=> {
+        event.preventDefault();
+        form.style.display = 'none'
+    })
+
+</script>

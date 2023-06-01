@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive</title>
+    <style>
+        *{
+            box-sizing:border-box;
+            font-family: sans-serif;
+        }
+        .container{
+            width: 60%;
+            margin: auto;
+        }
+        form{
+            padding: 15px;
+            position: relative;
+            background-color: #eee;
+            width: 100%;
+        }
+        form > div{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        form input, select, textarea{
+            padding: 10px;
+            width: 70%;
+            border: 1px solid #ccc;
+        }
+        form div:last-child{
+            align-items:flex-start;
+        }
+        form input[type=submit]{
+            background-color: #04aa6d;
+            opacity: 0.9;
+            width: 100px;
+            margin: auto;
+            color:#fff;
+            cursor: pointer;
+        }
+        form input[type=submit]:hover{
+            opacity: 1;
+        }
+
+
+        @media screen and (max-width:650px) {
+            .container{
+                width: 90%;
+            }
+            form div{
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            form input, select, textarea{
+                width: 100%;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+            form input[type=submit]{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Responsive Form</h2>
+        <p>Resize the browser window to see the effect (the labels and inputs will stack on top of each other instead of next to each other on smaller screens):</p>
+
+        <form action="">
+            <div class="input-fields">
+                <label for="name">First Name</label>
+                <input type="text" id="name" placeholder="Your name..">
+            </div>
+            <div class="input-fields">
+                <label for="last-name">Last name</label>
+                <input type="text" placeholder="Your last name..">
+            </div>
+            <div class="input-fields">
+                <label for="country">Country</label>
+                <select id="country">
+                    <option value="australia">Australia</option>
+                    <option value="usa">USA</option>
+                    <option value="canada">Canada</option>
+                </select>
+            </div>
+            <div class="input-fields">
+                <label for="subject">Subject</label>
+                <textarea name="" id="subject" cols="30" rows="10" placeholder="Write something.."></textarea>
+            </div>
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+</body>
+</html>

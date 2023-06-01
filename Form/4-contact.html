@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .container{
+            border-radius: 3px;
+            width: 50vw;
+            margin: auto;
+            background-color: #f1f4f6;
+            padding: 30px;
+        }
+        .container input, select, textarea{
+            font-size: 17px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            width: 100%;
+            margin-bottom: 15px;
+            margin-top: 5px;
+        }
+        .container input[type=submit]{
+            width: 100px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            background-color: #04aa6d;
+        }
+        .container input[type=submit]:hover{
+            background-color: #028a58;
+        }
+        .container input:focus, select:focus, textarea:focus{
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Form</h1>
+
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" placeholder="Your Name..">
+
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" placeholder="Your Last Name..">
+
+        <label for="country">Country</label>
+        <select id="country">
+            <option value="australia">Australia</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+        </select>
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" cols="30" rows="10" placeholder="Write something.."></textarea>
+
+        <input type="submit">
+    </div>
+</body>
+</html>

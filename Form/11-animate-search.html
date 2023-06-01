@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate Search</title><script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+            box-sizing:border-box;
+            font-family: sans-serif;
+        }
+        .container{
+            border: 1px solid;
+            border-radius: 3px;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+        }
+        .container i{
+            padding: 10px;
+        }
+        .container input{
+            width: 150px;
+            padding: 10px;
+            outline: none;
+            font-size: 20px;
+            transition: 0.5s;
+            border: none;
+        }
+        .container input:focus{
+            width: 90vw;
+        }
+
+    </style>
+</head>
+<body>
+    <h3>Type inside the input box to see the animation</h3>
+    <div class="container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="text" placeholder="Search..">
+    </div>
+</body>
+</html>

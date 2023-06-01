@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy text ot clipboard</title>
+    <style>
+        .container input{
+            padding: 10px;
+        }
+        #btn{
+            border: none;
+            background-color: #ddd;
+            padding: 11px;
+            width: 100px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p>Click on the button to copy the text from the text field.</p>
+    <div class="container">
+        <input type="text" id="input"><button id="btn">Copy Text</button>
+    </div>
+</body>
+</html>
+<script>
+
+    let btn = document.getElementById('btn');
+    
+    btn.addEventListener('click', ()=> {
+        let input = document.getElementById('input');
+        btn.style.backgroundColor = '#04aa6d'
+        btn.innerHTML = 'Copied!'
+        
+        input.select();
+
+        navigator.clipboard.writeText(input.value)
+        .then(()=> {
+            console.log(input.value)
+        })
+        .catch((error)=> {
+            console.log(error)
+        })
+    })
+
+</script>

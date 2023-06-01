@@ -1,0 +1,23 @@
+.container {
+  /* position: relative; */
+  /* display: inline-block; */
+  width: 500px;
+  margin: auto;
+}
+
+#image {
+  display: block;
+  width: 400px;
+  height: auto;
+}
+
+#magnifier {
+  position: absolute;
+  display: none;
+  width: 200px;
+  height: 150px;
+  border: 2px solid #000;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.8);
+}

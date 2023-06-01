@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <title>Animated Buttons</title>
+    <style>
+        .container{
+            /* border: 1px solid red; */
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            margin-top: 50px;
+        }
+        .btns{
+            width: 27%;
+            padding: 20px 0;
+            font-size: 20px;
+            border: none;
+        }
+
+        #btn1{
+            border-radius: 10px;
+            background-color: #84c225 ;
+            box-shadow: 3px 7px #999;
+        }
+        #btn1:hover{background-color: #008000;}
+        #btn1:active{
+            box-shadow: 2px 5px #666;
+            transform: translate(2px, 4px);
+        }
+
+        #btn2{
+            border-radius: 10px;
+            background-color: tomato;
+        }
+        #btn2 span{
+            position: relative;
+            /* border: 1px solid; */
+            transition: 1s;
+            padding-right: 10px;
+        }
+        #btn2 span:after{
+            transition: 0.5s;
+            content: '\00bb';
+            /* padding: 5px; */
+            opacity: 0;
+            top: 0;
+            right: 5px;
+            position: absolute;
+        }
+        #btn2:hover span{
+            padding-right: 20px;
+        }
+        #btn2:hover span:after{
+            right: 0;
+            opacity: 1;
+        }
+
+        #btn3{
+            background-color: #84c225 ;
+            position: relative;
+            overflow: hidden;
+        }
+        #ripple{
+            position: absolute;
+            padding-top: 300%;
+            padding-left: 350%;
+            margin-left: -20px!important;
+            margin-top: -120%;
+            transition: 0.8s;
+            opacity: 0;
+            background-color: #b0d873;
+        }
+        #btn3:active #ripple{
+            padding: 0;
+            margin: 0;
+            transition: 0s;
+            opacity: 1;
+        }
+        
+    </style>
+</head>
+<body>
+    <i class="fa-solid fa-loader"></i>
+    <div class="container">
+        <button id="btn1" class="btns">Animation 1 </button>
+    
+        <button id="btn2" class="btns"><span>Animation 2</span></button>
+        
+        <button id="btn3" class="btns">Animation 3 
+            <div id="ripple"></div>
+        </button>
+    </div>
+</body>
+</html>
