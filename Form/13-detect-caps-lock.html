@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detect caps Lock</title>
+    <style>
+        .container{
+            width: 50%;
+            border: 1px solid;
+            margin: auto;
+            text-align: center;
+        }
+        .container input{
+            padding: 10px;
+        }
+        .container #msg{
+            color: red;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Type anything in Caps to see the message</p>
+        <input type="text" id="input-field">
+        <p id="msg">WARNING! Caps lock is ON.</p>
+    </div>
+</body>
+</html>
+
+<script>
+    let input = document.getElementById('input-field');
+    let msg = document.getElementById('msg');
+
+    input.addEventListener('keyup', (event)=> {
+        if(event.getModifierState('CapsLock')) {
+            msg.style.opacity = 1;
+        } else {
+            msg.style.opacity = 0;
+        }
+    })
+
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigger Button on Enter</title>
+    <style>
+        .container{
+            width: 50%;
+            border: 1px solid;
+            margin: auto;
+            padding: 5px;
+            text-align: center;
+        }
+        #input{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Trigger a Button Click on Enter</h2>
+        <p>Press the "Enter" key inside the input field to trigger the button:</p>
+
+        <form action="">
+            <input id="input" type="text" placeholder="Some text">
+            <button id="btn">Button</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+<script>
+    let input = document.getElementById('input');
+    let btn = document.getElementById('btn');
+
+    btn.addEventListener('click', ()=> {
+        alert(input.value)
+    })
+    input.addEventListener('keypress', (event)=> {
+        if(event.key == 'Enter') {
+            event.preventDefault();
+            btn.click();
+        }
+    });
+</script>

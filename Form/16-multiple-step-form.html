@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Step Form</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .container{
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid;
+            content: "";
+            display: table;
+            clear: both;
+        }
+        form input{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+        form button{
+            padding: 15px;
+            font-size: 15px;
+            float: right;
+            cursor: pointer;
+            background-color: #1bbb80;
+            opacity: 0.8;
+            color: white;
+            border: none;
+        }
+        form button:hover{
+            opacity: 1;
+        }
+        button:last-child{
+            margin-right: 10px;
+            display: none;
+            background-color: #bbb;
+        }
+        .indicators{
+            width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+        .indicators span{
+            border: 1px solid;
+            padding: 0 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .section:not(:first-child){
+            display: none;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form action="">
+            <div class="section">
+                <label for="name">Name:</label>
+                
+                <input type="text" id="name"  placeholder="First name.." required>
+                <input type="text"  placeholder="Last name.." required>
+            </div>
+            
+            <!-- Contact info -->
+            <div class="section">
+                <label for="contact">Contact Info:</label>
+                
+                <input type="text" id="contact"  placeholder="Email.." required>
+                <input type="text"  placeholder="Phone.." required>
+            </div>
+
+            <!-- Birthday info -->
+            <div class="section">
+                <label for="birthday">Birthday:</label>
+                
+                <input type="text" id="birthday"  placeholder="Birthday.." required>
+                <input type="text"  placeholder="Last name.." required>
+            </div>
+
+            <!-- Login info -->
+            <div class="section">
+                <label for="contact">Login Info:</label>
+                
+                <input type="text" id="login"  placeholder="Username.." required>
+                <input type="text"  placeholder="Password.." required>
+            </div>
+
+            <div class="btns">
+                <button>Next</button>
+                <button>Previous</button>
+            </div>
+
+            <div class="indicators">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+
+    let sections = document.getElementsByClassName('section');
+    let form = document.getElementsByTagName('form')[0];
+    let buttons = document.getElementsByTagName('button');
+    let inputs = document.getElementsByTagName('input');
+
+    let nextBtn = buttons[0];
+    let previousBtn = buttons[1];
+    
+    // console.log(sections[0]);
+    let page = 0;
+
+    previousBtn.addEventListener('click', (event)=> {
+        event.preventDefault();
+        page--;
+        if(page==0) {previousBtn.style.display = 'none'}
+        if(page==3) {nextBtn.innerHTML = 'Submit'}
+        else{nextBtn.innerHTML = 'Next'}
+        console.log(page+1);
+        showSection(page)
+    })
+    
+    nextBtn.addEventListener('click', (event)=> {
+        event.preventDefault();
+        previousBtn.style.display = 'block';
+        page++;
+        if(page == 4){form.submit()}
+        console.log(page+1);
+        if(page==3) {nextBtn.innerHTML = 'Submit'}
+        else{nextBtn.innerHTML = 'Next'}
+        showSection(page)
+    })
+
+    function showSection(num) {
+        for(let i=0; i<sections.length; i++) {
+            if(i==page) {sections[i].style.display = 'block';}
+            else {sections[i].style.display = 'none';}
+        }
+    }
+
+    function isValid() {
+        for(let i=0; i<inputs.length; i++) {
+            if(inputs[0].value == '') {
+                return false
+            } else return true;
+        }
+    }
+
+</script>

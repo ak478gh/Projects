@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .container{
+            width: 50%;
+            margin: auto;
+            padding: 10px;
+            box-shadow: 0px 0px 5px #aaa;
+        }
+        .input{
+            width: 90%;
+            /* border: 1px solid; */
+            position: relative;
+        }
+        form .result{
+            /* border: 1px solid; */
+            background-color: #fff;
+            width: 100%;
+            position: absolute;
+        }
+        form .result div{
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-top: none;
+        }
+        form .result div:hover{
+            background-color: #ddd;
+        }
+        form{
+            display: flex;
+        }
+        form input{
+            padding: 10px;
+            background-color: #04aa6d;
+            border: none;
+            opacity: 0.9;
+            color: #fff;
+        }
+        form input:hover{
+            opacity: 1;
+        }
+        form input:first-child{
+            padding: 10px;
+            width: 100%;
+            outline: none;
+            color: #000;
+            border: none;
+            background-color: #eee;
+        }
+        form input:first-child:focus{
+            background-color: #ddd;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+        <h2>Autocomplete</h2>
+        
+        <p>Start typing to see the suggesions</p>
+        
+        <form action=""  autocomplete="off">
+            
+            <div class="input">
+                <input type="text" id="country" placeholder="Enter city name..">
+                <div class="result">
+                    <!-- suggesion should be appended here -->
+                </div>
+            </div>
+
+            <input type="submit" value="Submit">
+            
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    let countryArr = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+    
+    let inputElem = document.getElementById('country');
+    
+    let resultDiv = document.getElementsByClassName('result')[0];
+
+    let select = (event)=> {
+        inputElem.value = event.target.innerHTML;
+        resultDiv.style.display = 'none';
+    }
+
+    inputElem.addEventListener('keyup', (event)=> {
+        event.preventDefault();
+        
+        let input = inputElem.value;
+        
+        // if there is no input then resultDiv shouldn't be visible.
+        if(input == '') {
+            resultDiv.innerHTML = '';
+            return;
+        }
+        
+        resultDiv.innerHTML = ''; // initially, resultDiv shouldn't be visible.
+        resultDiv.addEventListener('click', select)
+
+        for(let i=0; i<countryArr.length; i++) {
+            if(countryArr[i].toUpperCase().includes(input.toUpperCase())) {
+                let result = document.createElement('div');
+                result.innerHTML = countryArr[i];
+                resultDiv.append(result);
+                // console.log(countryArr[i], input.toUpperCase());
+            }
+        }
+    })
+
+    inputElem.addEventListener('keydown', (event)=> {
+        if(event.key == 'ArrowDown') {
+
+        }
+    })
+
+</script>
