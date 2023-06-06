@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Elements</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .container{
+            width: 60vw;
+            border: 1px solid;
+            padding: 10px;
+            margin: auto;
+        }
+        h2{
+            font-weight: lighter;
+        }
+        .btns button{
+            font-size: 15px;
+            transition: 0.5s;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px silver;
+        }
+        .btns button:hover{
+            background-color: #ccc;
+        }
+        .boxes{
+            margin-top: 10px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .boxes div{
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            transition: 0.5s;
+            align-items: center;
+            height: 100px;
+            /* width: 100px; */
+            background-color: blueviolet;
+        }
+        .boxes div:hover{
+            scale: 1.2;
+            background-color: rgb(218, 88, 110);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Filter DIV Elements</h2>
+        <div class="btns">
+            <button>Show All</button>
+            <button>Cars</button>
+            <button>Animals</button>
+            <button>Fruits</button>
+            <button>Colors</button>
+        </div>
+
+        <div class="boxes">
+            <div class="div Cars">BMW</div>
+            <div class="div Colors">Orange</div>
+            <div class="div Colors">Green</div>
+            <div class="div Cars">Volvo</div>
+            <div class="div Colors">Red</div>
+            <div class="div Animals">Goat</div>
+            <div class="div Fruits">Guava</div>
+            <div class="div Animals">Cpricon</div>
+            <div class="div Colors">Yellow</div>
+            <div class="div Fruits">Banana</div>
+            <div class="div Animals">Wolf</div>
+            <div class="div Fruits">Kiwi</div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let btns = document.getElementsByClassName('btns')[0];
+    let boxes = document.getElementsByClassName('boxes')[0];
+
+    console.log(boxes);
+    
+    const sort = (event)=> {
+        let btnText = event.target.innerHTML;
+        for(let i=0; i<boxes.childElementCount; i++) {
+            // console.log(btnText)
+            if(btnText == 'Show All') {
+                boxes.children[i].style.display = 'grid';
+                continue;
+            }
+            if(boxes.children[i].classList[1].includes(btnText)) {
+                boxes.children[i].style.display = 'grid'
+            } else {
+                boxes.children[i].style.display = 'none';
+            }
+        }
+    }
+    for(let i=0; i<btns.childElementCount; i++) {
+        btns.children[i].addEventListener('click', sort);
+    }
+</script>

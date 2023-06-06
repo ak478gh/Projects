@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter List</title>
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+            box-sizing:border-box;
+            font-family: sans-serif;
+            margin: 0;
+        }
+        .container{
+            border: 1px solid;
+            width: 60vw;
+            padding: 10px;
+            margin: auto;
+        }
+        .input-div{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            border: 1px solid;
+        }
+        .input-div i{
+            /* border: 1px solid; */
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .input{
+            width: 100%;
+            padding: 10px 0;
+            font-size: 20px;
+            outline: none;
+            border: none;
+        }
+        .result{
+            margin-top: 5px;
+        }
+        .result p{
+            padding: 10px;
+            border: 1px solid grey;
+            cursor: pointer;
+        }
+        .result p:hover{
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Filter List</h2>
+        <p>start typing to filter the list</p>
+        <form action="">
+            <div class="input-div">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="input" placeholder="Search for names..">
+            </div>
+
+            <div class="result">
+                <p>Adele</p>
+                <p>Agnes</p>
+                <p>Billy</p>
+                <p>Bob</p>
+                <p>Calvin</p>
+                <p>Christina</p>
+                <p>Cindy</p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    let result = document.getElementsByClassName('result')[0];
+    let input = document.getElementsByClassName('input')[0];
+    let header = document.getElementById('header');
+
+    input.addEventListener('keyup', ()=> {
+        let input = document.getElementsByClassName('input')[0];
+        // header.innerHTML = input.value;
+        // console.log(input.value);
+        for(let i=0; i<result.childElementCount; i++) {
+            if(result.children[i].innerHTML.toUpperCase().includes(input.value.toUpperCase())) {
+                result.children[i].style.display = 'block';
+                // console.log(input.value.toUpperCase(), result.children[i].innerHTML.toUpperCase());
+            } else {
+                result.children[i].style.display = 'none';
+                // console.log(input.value.toUpperCase(), result.children[i].innerHTML.toUpperCase());
+            }
+        }
+    })
+
+</script>

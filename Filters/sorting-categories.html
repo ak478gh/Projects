@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter List</title>
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+
+    <style>
+        *{
+            box-sizing:border-box;
+            font-family: sans-serif;
+            margin: 0;
+        }
+        .container{
+            border: 1px solid;
+            width: 60vw;
+            padding: 10px;
+            margin: auto;
+        }
+        .input-div{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            border: 1px solid;
+        }
+        .input-div i{
+            /* border: 1px solid; */
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .input{
+            width: 100%;
+            padding: 10px 0;
+            font-size: 20px;
+            outline: none;
+            border: none;
+        }
+        .result{
+            margin-top: 5px;
+        }
+        .container label{
+            font-weight: bolder;
+            background-color: #ddd;
+        }
+        .card p{
+            padding: 10px;
+            cursor: pointer;
+            /* border-top: none; */
+        }
+        .result .card:hover{
+            background-color: #ddd;
+        }
+        .card{
+            border: 1px solid grey;
+            display: flex;
+        }
+        .card p:first-child{
+            width: 70%;
+        }
+        .card p:last-child{
+            width: 30%;
+        }
+        .card:nth-child(even) {
+            background-color: #ddd;
+        }
+
+        #sort{
+            padding: 10px;
+            background-color: #bbb;
+            border: none;
+            margin: 5px 0;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #sort:hover{
+            background-color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Filter List</h2>
+        <p>start typing to filter the list</p>
+        <form action="">
+            <div class="input-div">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="input" placeholder="Search for names..">
+            </div>
+
+            <button id="sort">Sort Alphabetically</button>
+
+            <label class="card"><p>Name</p><p>Country</p></label>
+            <div class="result">
+                <div class="card"><p>Alfreds Futterkiste</p><p>Germany</p></div>
+                <div class="card"><p>Berglunds snabbkop</p><p>Sweden</p></div>
+                <div class="card"><p>Island Trading</p><p>UK</p></div>
+                <div class="card"><p>Koniglich Essen</p><p>Germany</p></div>
+                <div class="card"><p>Laughing Bacchus Winecellars</p><p>Canada</p></div>
+                <div class="card"><p>Magazzini Alimentari Riuniti</p><p>Italy</p></div>
+                <div class="card"><p>North/South</p><p>UK</p></div>
+                <div class="card"><p>Paris specialites</p><p>France</p></div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    let result = document.getElementsByClassName('result')[0];
+    let cards = document.getElementsByClassName('cards')[0];
+    let input = document.getElementsByClassName('input')[0];
+    let header = document.getElementById('header');
+    let sort = document.getElementById('sort');
+
+    input.addEventListener('keyup', ()=> {
+        let input = document.getElementsByClassName('input')[0];
+        // header.innerHTML = input.value;
+        // console.log(input.value);
+        for(let i=1; i<result.childElementCount; i++) {
+            if(result.children[i].children[0].innerHTML.toUpperCase().includes(input.value.toUpperCase())) {
+                result.children[i].style.display = 'flex';
+                // console.log(input.value.toUpperCase(), result.children[i].children[0].innerHTML.toUpperCase());
+            } else {
+                result.children[i].style.display = 'none';
+                // console.log(input.value.toUpperCase(), cards.children[i].innerHTML.toUpperCase());
+            }
+        }
+    })
+
+    let flag = true;
+
+    sort.addEventListener('click', (event)=> {
+        event.preventDefault();
+
+        let resultArr = Array.from(result.children);
+        console.log(resultArr)
+
+        if(flag) {
+            resultArr.sort((a, b)=> {
+                return a.children[0].innerHTML.localeCompare(b.children[0].innerHTML);
+            })
+    
+            for(let i=0; i<resultArr.length; i++) {
+                console.log(resultArr[i].children[0].innerHTML);
+                result.append(resultArr[i]);
+                sort.innerHTML = 'Sort Reverse Alphabetically';
+            }
+            flag = !flag;
+        } else {
+            resultArr.sort((a, b)=> {
+                return b.children[0].innerHTML.localeCompare(a.children[0].innerHTML);
+            })
+    
+            for(let i=0; i<resultArr.length; i++) {
+                console.log(resultArr[i].children[0].innerHTML);
+                result.append(resultArr[i]);
+                sort.innerHTML = 'Sort Alphabetically';
+            }
+            flag = !flag;
+        }
+
+    })
+
+</script>

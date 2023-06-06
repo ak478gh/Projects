@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort List</title>
+    <style>
+        *{
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .container{
+            width: 30%;
+            margin: auto;
+            border: 1px solid;
+        }
+        #sort{
+            padding: 10px 20px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #04aa6d;
+            border: none;
+        }
+        #cities p{
+            padding: 10px;
+            cursor: pointer;
+        }
+        #cities p:hover{
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Click the button to sort the list alphabatically:</p>
+        <button id="sort">Sort</button>
+
+        <div id="cities">
+            <p>Oslo</p>
+            <p>Stockholm</p>
+            <p>Helsinki</p>
+            <p>Berlin</p>
+            <p>Rome</p>
+            <p>Madrid</p>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+    let citiesContainer = document.getElementById('cities');
+    let sortBnt = document.getElementById('sort');
+    sort.addEventListener('click', ()=> {
+        let cityArr = Array.from(cities.children);
+        console.log(cityArr[2].innerHTML);
+
+        cityArr.sort((a,b)=> {
+            return a.innerHTML.localeCompare(b.innerHTML);
+        });
+
+        console.log(cityArr[4].innerHTML);
+        citiesContainer.innerHTML = '';
+        
+        for(let i=0; i<cityArr.length; i++) {
+            citiesContainer.append(cityArr[i]);
+        }
+        
+    })
+
+</script>
