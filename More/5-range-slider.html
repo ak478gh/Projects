@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range Slider</title>
+    <style>
+        *{
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .slider{
+            display: block;
+            width: 50vw;
+            margin-bottom: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+
+        <label for="slider1">Default</label>
+        <input type="range" class="slider" id="slider1" min="0" value="50" max="100">
+
+        <label for="slider2">Square</label>
+        <input type="range" class="slider" id="slider2" min="0" max="100">
+
+        <label for="slider3">Round</label>
+        <input type="range" class="slider" id="slider3" min="0" max="100">
+
+        <label for="slider4">Image</label>
+        <input type="range" class="slider" id="slider4" min="0" max="100">
+
+    </div>
+    <h3>Value: <span id="value"></span></h3>
+</body>
+</html>
+
+<script>
+    let sliders = document.getElementsByTagName('input');
+    let value = document.getElementById('value');
+    let arr = Array.from(sliders);
+
+    for(let i=0; i<arr.length; i++) {
+        arr[i].addEventListener('input', ()=> {
+            value.innerHTML = arr[i].value;
+        })
+    }
+</script>
