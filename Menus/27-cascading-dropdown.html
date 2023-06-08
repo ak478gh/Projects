@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascading Dropdown</title>
+</head>
+<body>
+    <div class="container">
+        <h3>Cascading Dropdown</h3>
+        <form action="/action_page.php">
+
+            <label for="subjects">Subjects:</label>
+            <select id="subjects">
+                <option value="selected">Select subject</option>
+            </select>
+                
+            <label for="topics">Topics:</label>
+            <select id="topics">
+                <option value="selected">Please select Subject first</option>
+            </select>
+            
+            <label for="chapters">Chapters:</label>
+            <select id="chapters">
+                <option value="selected">Please select Topics first</option>
+            </select>
+
+                <input type="submit" value="Submit">
+
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+
+    let selectedOjb = {
+        'Front-end': {
+            'HTML': ['Links', 'Tables', 'Lists'],
+            'CSS': ['Borders', 'Margins', 'Backgrounds', 'Float'],
+            'JS': ['Variables', 'Functions', 'Conditions', 'Operators']
+        },
+        'Back-end': {
+            'PHP': ['Variables', 'Strings', 'Arrays'],
+            'SQL': ['SELECT', 'UPDATE', 'DELETE']
+        }
+    }
+
+    window.onload = ()=> {
+        let subjectSel = document.getElementById('subjects');
+        let topicSel = document.getElementById('topics');
+        let chapterSel = document.getElementById('chapters');
+
+        console.log(subjectSel.options[0]);
+
+        // subjectSel.options[1] = new Option('asdf')
+        for(let key in selectedOjb) {
+            subjectSel.options[subjectSel.options.length] = new Option(key, key)
+        }
+        // console.log(subjectSel.length);
+        
+        subjectSel.onchange = ()=> {
+            topicSel.length = 1;
+            chapterSel.length = 1;
+            
+            console.log(subjectSel.value);
+            
+            for(let key in selectedOjb[subjectSel.value]) {
+                topicSel.options[topicSel.options.length] = new Option(key, key);
+            }
+            console.log(72, selectedOjb[subjectSel.value]);
+        }
+        
+        
+        topicSel.onchange = ()=> {
+            chapterSel.length = 1;
+            console.log(7, selectedOjb[subjectSel.value][topicSel.value]);
+            
+            for(let key of selectedOjb[subjectSel.value][topicSel.value]) {
+                chapterSel.options[chapterSel.options.length] = new Option(key, key);
+            }
+        }
+
+    }
+
+</script>

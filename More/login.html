@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: sans-serif;
+            /* margin: 0; */
+        }
+        .modal-container{
+            background-color: rgba(0, 0, 0, 0.2);
+            height: 100vh;
+            width: 100vw;
+            display: none;
+
+            /* position */
+            position: relative;
+            top: -30px;
+        }
+
+        .modal-content{
+            text-align: center;
+            width: 40vw;
+            background-color: #fff;
+            padding: 10px;
+
+            /* position */
+            position: absolute;
+            top: 50px;
+            left: 30%;
+            /* transform: translate(-50%, -50%); */
+
+            /* animation */
+            animation: zoom 1s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0);}            
+            to {transform: scale(1);}            
+        }
+
+        .modal-content img{
+            width: 50%;
+            border-radius: 50%;
+            margin: auto;
+        }
+
+        .modal-content form{
+            text-align: left;
+        }
+        form label{
+            font-weight: bold;
+        }
+
+        form input{
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        form input[type=submit] {
+            background-color: #04aa6d;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 18px;
+        }
+        form input[type=submit]:hover {
+            opacity: 0.8;
+        }
+
+        form input[type=checkbox] {
+            width: 20px;
+        }
+
+        form span{
+            font-weight: normal;
+        }
+
+        #close{
+            font-size: 30px;
+            font-weight: bolder;
+            cursor: pointer;
+
+            /* position */
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            /* animation */
+        }
+        #close:hover{
+            color: red;
+        }
+
+        .footer{
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer button{
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: red;
+            color: #fff;
+            border: none;
+            opacity: 0.8;
+        }
+        .footer button:hover{
+            opacity: 1;
+        }
+        .footer a{
+            color: black;
+        }
+        .footer a:hover{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="openForm">Open Login Form</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-container">
+        <div class="modal-content">
+            <select name="" id="">
+                <option value="sumit">sumit</option>
+            </select>
+            <div class="card">
+                <div id="close">&times;</div>
+                <img src="https://avatars.githubusercontent.com/u/66897228?v=4" alt="picture">
+                <form action="">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter Username">
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password">
+
+                    <input type="submit" value="Login">
+
+                    <label for="">
+                        <input type="checkbox" id="checkbox"><span>Remember me</span>
+                    </label>
+
+                    <div class="footer">
+                        <button id="cancel">Cancel</button>
+                        <span>Forgot <a href="">Password?</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    // when user clicks on the openForm btn then display the modal container
+    document.getElementById('openForm').addEventListener('click', ()=> {
+        document.getElementsByClassName('modal-container')[0].style.display = 'block';
+    })
+
+    // when user clicks outside of form then hide the modal container
+    window.onclick = (event)=> {
+        if(event.target == document.getElementsByClassName('modal-container')[0]) {
+            document.getElementsByClassName('modal-container')[0].style.display = 'none';
+        }
+    }
+
+    document.getElementById('close').addEventListener('click', ()=> {
+        document.getElementsByClassName('modal-container')[0].style.display = 'none';
+    })
+
+    document.getElementById('cancel').addEventListener('click', ()=> {
+        document.getElementsByClassName('modal-container')[0].style.display = 'none';
+    })
+
+</script>
