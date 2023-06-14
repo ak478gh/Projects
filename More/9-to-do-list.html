@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            font-family: sans-serif;
+            box-sizing: border-box;
+            padding: 0;
+        }
+        .container{
+            width: 60%;
+            margin: auto;
+            padding: 10px;
+            border: 1px solid;
+        }
+        .header{
+            background-color: tomato;
+            text-align: center;
+            padding: 5px;
+        }
+        .header h3{
+            color: #fff;
+            font-weight: lighter;
+            font-size: 30px;
+        }
+        .input-box{
+            display: flex;
+            font-size: 20px;
+        }
+        .input-box input{
+            padding: 10px;
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+        .input-box button{
+            padding: 10px;
+            width: 100px;
+            color: #000;
+            border: none;
+        }
+        .input-box button:hover{
+            background-color: #ccc;
+        }
+
+        .todo{
+            display: flex;
+            background-color: #eee;
+            position: relative;
+            transition: 0.3s;
+        }
+        .todo:hover{
+            background-color: #bbb;
+        }
+        .todo p{
+            margin-left: 60px;
+        }
+        .todo i{
+            position: absolute;
+            padding: 17px;
+        }
+        #cross{
+            right: 0;
+        }
+        #cross:hover{
+            background-color: tomato;
+            color: #fff;
+        }
+        .check{
+            left: 0;
+            display: none;
+        }
+        .checked{
+            text-decoration: line-through;
+            background-color: #bbb;
+        }
+        .checked-mark{
+            color: #fff;
+            display: block;
+        }
+
+        /* Media Quary */
+
+        @media screen and (max-width:640px) {
+            .container{
+                width: 90%;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>The To Do List</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, optio.</p>
+        <div class="todo-container">
+            <div class="header">
+                <h3>My To Do List</h3>
+
+                <div class="input-box">
+                    <input id="todoName" type="text" placeholder="Todo Name...">
+                    <button id="addBtn">Add</button>
+                </div>
+            </div>
+
+            <div class="todos">
+                <!-- Todos ot be appended here using JS -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let todoContainer = document.getElementsByClassName('todos')[0];
+    let todo = document.getElementsByClassName('todo');
+    
+    document.getElementById('addBtn').addEventListener('click', ()=> {
+        let inputText = document.getElementById('todoName');
+        if(inputText.value !== '') {
+            let todoItem = document.createElement('div');
+            todoItem.classList.add('todo');
+            todoItem.innerHTML = createTodo(inputText.value);
+            todoContainer.append(todoItem);
+            
+            inputText.value = '';
+            todoItem.children[1].addEventListener('click', deleteTodo);
+            todoItem.addEventListener('click', checkTodo);
+        } else{
+            alert('You must write something!')
+        }
+    })
+
+    const deleteTodo = (event)=> {
+        event.target.parentNode.remove();
+    }
+    const checkTodo = (event)=> {
+        event.target.classList.toggle('checked');
+        event.target.children[2].classList.toggle('checked-mark');
+    }
+
+    const createTodo = (todoName)=> {
+
+        return `
+            <p>${todoName}</p>
+            <i id="cross" class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-check check"></i>
+        `
+    }
+
+</script>

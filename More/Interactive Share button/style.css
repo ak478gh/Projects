@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+}
+.container{
+    border: 1px solid;
+    height: 500px;
+    background-color: teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container i{
+    font-size: 50px;
+    border: 1px solid;
+    padding: 10px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 50%;
+    transition: 0.5s;
+    position: absolute;
+}
+#share{
+    background-color: green;
+}
+#close{
+    background-color: red;
+}
+#insta:hover{
+    background-color: orange;
+}
+#snap:hover{
+    background-color: yellow;
+}
+#twitter:hover{
+    background-color: blue;
+}

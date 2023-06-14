@@ -26,7 +26,7 @@
                 <option value="selected">Please select Topics first</option>
             </select>
 
-                <input type="submit" value="Submit">
+            <input type="submit" value="Submit">
 
         </form>
     </div>
@@ -56,7 +56,7 @@
 
         // subjectSel.options[1] = new Option('asdf')
         for(let key in selectedOjb) {
-            subjectSel.options[subjectSel.options.length] = new Option(key, key)
+            subjectSel.options[subjectSel.options.length] = new Option(key)
         }
         // console.log(subjectSel.length);
         
@@ -64,18 +64,13 @@
             topicSel.length = 1;
             chapterSel.length = 1;
             
-            console.log(subjectSel.value);
-            
             for(let key in selectedOjb[subjectSel.value]) {
-                topicSel.options[topicSel.options.length] = new Option(key, key);
+                topicSel.options[topicSel.options.length] = new Option(key);
             }
-            console.log(72, selectedOjb[subjectSel.value]);
         }
-        
         
         topicSel.onchange = ()=> {
             chapterSel.length = 1;
-            console.log(7, selectedOjb[subjectSel.value][topicSel.value]);
             
             for(let key of selectedOjb[subjectSel.value][topicSel.value]) {
                 chapterSel.options[chapterSel.options.length] = new Option(key, key);

@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     magnifier.style.backgroundImage = `url('${image.src}')`;
     magnifier.style.backgroundSize = `${imageWidth}px ${imageHeight}px`;
     magnifier.style.backgroundPosition = `${backgroundPositionX}px ${backgroundPositionY}px`;
+    // magnifier.style.backgroundRepeat = "no-repeat"
 
     magnifier.style.left = event.pageX - magnifierWidth / 2 + 'px';
     magnifier.style.top = event.pageY - magnifierHeight / 2 + 'px';

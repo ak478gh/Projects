@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <title>Calender</title>
+    <style>
+        *{
+            font-family: sans-serif;
+            margin: 0;
+        }
+        .container{
+            width: 60%;
+            height: 70vh;
+            margin: auto;
+            border: 1px solid;
+        }
+        .month-container{
+            width: 100%;
+            height: 40%;
+            background-color: teal;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            
+            /* position property */
+            position: relative;
+        }
+        .month-container h3, h4{
+            display: block;
+            transition: 0.5s;
+            font-weight: lighter;
+        }
+        .month-container i{
+            font-size: 30px;
+            padding: 10px;
+            transition: 0.3s;
+            border-radius: 3px;
+            
+            /* position property */
+            position: absolute;
+            top: 35%;
+        }
+        .month-container i:hover{
+            background-color: #ddd;
+            color: black;
+        }
+        .month-container i#leftArrow{
+            
+            left: 0;
+        }
+        .month-container i#rightArrow{
+            
+            /* position property */
+            position: absolute;
+            right: 0;
+
+        }
+        .week{
+            display: flex;
+            justify-content: space-around;
+            background-color: #ccc;
+            padding: 10px 0;
+        }
+        ul.week li{
+            list-style:none;  
+            text-align: center;
+            color: #333;
+            margin-left: 0px;
+        }
+        .dates{
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            row-gap: 5px;
+            padding-left: 0px;
+            margin-top: 5px;
+
+        }
+        .dates li{
+            list-style: none;
+            text-align: center;
+            margin-left: 0px;
+        }
+        .dates li:hover{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="month-container">
+            <i id="leftArrow" class="fa-solid fa-caret-left"></i>
+            <i id="rightArrow" class="fa-solid fa-caret-right"></i>
+
+            <h3>January</h3>
+            <h4>2023</h4>
+
+        </div>
+
+        <ul class="week">
+            <li>Mon</li>
+            <li>Tue</li>
+            <li>Wen</li>
+            <li>Thu</li>
+            <li>Fri</li>
+            <li>Sat</li>
+            <li>Sun</li>
+        </ul>
+
+        <ul class="dates">
+            <!-- append dates here -->
+        </ul>
+    </div>
+</body>
+</html>
+
+<script>
+    let dates = document.getElementsByClassName('dates')[0];
+    let rightArrow = document.getElementById('rightArrow')
+    let leftArrow = document.getElementById('leftArrow')
+    let month = document.getElementsByClassName('month-container')[0].children[2];
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let daysInMonth = [31, 30, 28, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    let date = new Date();
+    let currentMonth = date.getMonth();
+    let currentDay = date.getDay();
+    let currentDate = date.getDate();
+    // console.log(date);
+    console.log(currentMonth);
+    let daysInCurrMonth = daysInMonth[currentMonth];
+    month.innerHTML = months[currentMonth];
+    
+    const fillTheDates = ()=> {
+        dates.innerHTML = '';
+        month.innerHTML = months[currentMonth];
+        for(let i=1; i<=daysInCurrMonth; i++) {
+            let date = document.createElement('li');
+            
+            if(i == currentDate) {
+                date.style.backgroundColor = 'green';
+            }
+            date.innerHTML = i;
+            dates.append(date);
+        }
+    }
+
+    window.onload = fillTheDates();
+
+    rightArrow.onclick = ()=> {
+        console.log('check');
+        if(currentMonth == 11) {
+            currentMonth = -1;
+        }
+        currentMonth++;
+        console.log(currentMonth);
+        fillTheDates()
+    }
+
+    leftArrow.onclick = ()=> {
+        console.log('check');
+        if(currentMonth == 0) {
+            currentMonth = 12;
+        }
+        currentMonth--;
+        console.log(currentMonth);
+        fillTheDates()
+    }
+
+    
+</script>
