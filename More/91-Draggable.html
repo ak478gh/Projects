@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            padding: 10px;
+            border: 1px solid;
+            background-color: teal;
+        }
+        .imgBox{
+            width: 100px;
+            height: 92px;
+            background-color: #ddd;
+            padding: 10px;
+            text-align: center;
+            border: 3px solid;
+        }
+        .img{
+            display: inline;
+            width: 90%;
+            margin: auto;
+            border: 1px solid #000;
+            cursor: move;
+        }
+
+        /* JS injected CSS */
+
+        .drag{
+            border: 1px solid yellow;
+        }
+        .hide{
+            display: none;
+        }
+        .boxOver{
+            border: 3px dashed yellow;
+            background-color: #817e7e;
+        }
+
+        /* Media Queries */
+
+        @media screen and (max-width: 640px) {
+            .container{
+
+                grid-template-columns: repeat(3, 1fr);
+            }            
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <h3>Try to drag the image to other Boxes</h3>
+    <div class="container">
+
+        <div class="imgBox">
+            <img src="https://avatars.githubusercontent.com/u/66897228?v=4" alt="AK" class="img" draggable="true">
+        </div>
+        <div class="imgBox"></div>
+        <div class="imgBox"></div>
+        <div class="imgBox"></div>
+        <div class="imgBox"></div>
+        <div class="imgBox"></div>
+        <div class="imgBox"></div>
+        <div class="imgBox"></div>
+        <div class="imgBox"></div>
+    </div>
+    <label for="message">Image</label>
+    <h3 id="message"></h3>
+
+    <label for="message">Boxes</label>
+    <h3 id="message2"></h3>
+</body>
+</html>
+<script>
+    console.log("check");
+    let imgBoxes = document.getElementsByClassName('imgBox')
+    let img = document.getElementsByClassName('img')[0];
+    let message = document.getElementById('message');
+    let message2 = document.getElementById('message2');
+    
+    img.addEventListener('dragstart', (e)=> {
+        message.innerHTML = 'dragstart has been triggered'
+        e.target.className += ' drag';
+        setTimeout(() => {
+            e.target.className = 'hide';
+        }, 0);
+    })
+    img.addEventListener('dragend', (e)=> {
+        message.innerHTML = 'dragend has been triggered'
+        e.target.className = 'img';
+    })
+
+    for (let box of imgBoxes) {
+        
+        box.addEventListener('dragover', (e)=> {
+            e.preventDefault();
+            message2.innerHTML = 'dragover has been triggered'
+            e.target.className += ' boxOver'
+        })
+
+        box.addEventListener('dragenter', ()=> {
+            message2.innerHTML = 'draginter has been triggered'
+        })
+
+        box.addEventListener('dragleave', (e)=> {
+            message2.innerHTML = 'dragleave has been triggered'
+            e.target.className = 'imgBox';
+        })
+        
+        box.addEventListener('drop', (e)=> {
+            message2.innerHTML = 'drop has been triggered'
+            e.target.className = 'imgBox';
+            e.target.append(img)
+        })
+        
+    }
+
+</script>

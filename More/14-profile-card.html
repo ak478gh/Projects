@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <script src="https://kit.fontawesome.com/4066364e3e.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .container{
+            width: 200px;
+            height: 350px;
+            margin: auto;
+            font-weight: lighter;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            justify-content: space-between;
+        }
+        h2+p{
+            color: #666;
+            font-size: 15px;
+        }
+        p+p{
+            font-size: 13px;
+        }
+        .container img{
+            width: 100%;
+        }
+        button{
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        button:hover{
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://www.w3schools.com/w3images/team2.jpg" alt="Avatar">
+
+        <h2>John Doe</h2>
+        <p>CEO & Founder ,Example</p>
+        <p>Harvard University</p>
+        <span>
+            <i class="fa-solid fa-basketball"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+            <i class="fa-brands fa-facebook-f"></i>
+        </span>
+
+        <button>Contact</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Chips</title>
+    <style>
+        *{
+            padding: 0;
+            /* margin: 0; */
+        }
+        #container{
+            display: flex;
+        }
+        #form{
+            width: 500px;
+            align-items:center;
+            margin: auto;
+            margin-bottom: 50px;
+        }
+        #submit{
+            padding: 10px;
+            background-color: rgb(17, 160, 17);
+            outline: none;
+            cursor: pointer;
+            border: none;
+        }
+        #submit:hover{
+            opacity: 0.9;
+        }
+        #name{
+            border: none;
+            outline: none;
+            background-color: #ddd;
+            padding: 10px;
+        }
+        #container{
+            border: 1px solid;
+            height: 50px;
+        }
+        .card{
+            width: 170px;
+            border-radius: 30px;
+            background-color: #ddd;
+            display: flex;
+            position: relative;
+        }
+        .card img{
+            border-radius: 30px;
+            height: 50px;
+            margin-right: 5px;
+        }
+        .cross{
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            font-size: 25px;
+            transform: translate(0, -50%);
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .cross:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter Name...">
+        <input type="submit" id="submit">
+    </div>
+    <div id="container">
+        <div class="card">
+            <span class="cross">&times;</span>
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar">
+            <p>Amit Kumar</p>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    let submit = document.getElementById('submit');
+    let cross = document.getElementById('cross');
+    let container = document.getElementById('container');
+    
+    submit.addEventListener('click', ()=> {
+        let name = document.getElementById('name').value;
+        container.append(createCard(name));
+    });
+
+    const createCard = (name)=> {
+        let card = document.createElement('div');
+        card.setAttribute('class', 'card');
+        card.innerHTML = `
+                <span class="cross">&times;</span>
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar">
+                <p>${name}</p>
+        `
+        return card;
+    }
+
+
+</script>
