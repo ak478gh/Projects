@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert</title>
+    <style>
+        .alert{
+            height: 30px;
+            padding: 5px;
+            background-color: #ddd;
+            transition: 0.5s;
+            padding-bottom: 25px;
+
+            position: relative;
+        }
+        span{
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transform: translate(0, -50%);
+            font-size: 30px;
+        }
+        span:hover{
+            color: red;
+        }
+
+        #success{
+            background-color: green;
+        }
+        #danger{
+            background-color: tomato;
+        }
+        #info{
+            background-color: blue;
+        }
+        #warning{
+            background-color: yellow;
+        }
+        p{
+            /* border: 1px solid; */
+        }
+    </style>
+</head>
+<body>
+    <div id="danger" class="alert">
+        <p><b>Danger!</b> Indicates a dangerous or potentially negative action.</p>
+        <span>&times;</span>
+    </div>
+    
+    <div id="success" class="alert">
+        <p><b>Success!</b> Indicates a successful or positive action.</p>
+        <span>&times;</span>
+    </div>
+    
+    <div id="info" class="alert">
+        <p><b>Info!</b> Indicates a neutral informative change or action.</p>
+        <span>&times;</span>
+    </div>
+    
+    <div id="warning" class="alert">
+        <p><b>Warning!</b> Indicates a warning that might need attention.</p>
+        <span>&times;</span>
+    </div>
+</body>
+</html>
+
+<script>
+    let crossArr = document.getElementsByTagName('span');
+    console.log(crossArr.length);
+    for(let i=0; i<crossArr.length; i++) {
+        console.log(crossArr[i].parentElement.innerHTML)
+        crossArr[i].addEventListener('click', ()=> {
+            crossArr[i].parentElement.remove();
+            console.log('check');
+        })
+    }
+</script>

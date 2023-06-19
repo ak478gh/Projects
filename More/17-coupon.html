@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupon</title>
+    <style>
+        *{
+            margin: 0;
+            font-family: sans-serif;
+        }
+        #coupon{
+            border: 5px dashed rgb(168, 168, 168);
+            border-radius: 25px;
+            width: 24vw;
+            overflow: hidden;
+            margin: auto;
+        }
+        #company-logo{
+            padding: 20px;
+            background-color: #f0eded;
+            font-size: 30px;
+        }
+        
+        #product-img{
+            width: 100%;
+        }
+
+        #discount{
+            font-size: 23px;
+            font-weight: bold;
+            padding: 10px;
+        }
+        #desc{
+            padding: 10px;
+            font-weight: lighter;
+        }
+
+        #promo-code{
+            background-color: #f0eded;
+            padding: 20px;
+        }
+        #promo-code span{
+            background-color: rgb(209, 208, 208);
+            padding: 5px;
+        }
+        #promo-code p:last-child{
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="coupon">
+        <p id="company-logo">Company Logo</p>
+        <img src="https://www.w3schools.com/w3images/hamburger.jpg" id="product-img" alt="">
+        <p id="discount">20% OFF YOUR PURCHASE</p>
+        <p id="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita fugit quos nobis dignissimos quis, unde ipsa adipisci quisquam iusto, maiores dicta ad assumenda, placeat facilis?</p>
+
+        <div id="promo-code">
+            <p>Use Promo Code: <span>BOH232</span></p>
+            <p>Expires: Jan 03, 2021</p>
+        </div>
+    </div>
+</body>
+</html>
