@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snackbar</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        button{
+            padding: 10px;
+            background-color: #aaa;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+        }
+        #snackbar{
+            width: 200px;
+            padding: 10px;
+            background-color: grey;
+            /* display: none; */
+            visibility: visible;
+
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+            animation: visibility 0.5s, invisibility 0.5s 2.5s;
+        }
+        @keyframes visibility {
+            from{opacity: 0; bottom: 0;}
+            to{opacity: 1; bottom: 50px;}
+        }
+        
+        @keyframes invisibility {
+            from{opacity: 1; bottom: 50px;}
+            to{opacity: 0; bottom: 0;}
+        }
+    </style>
+</head>
+<body>
+    <button>Snack bar</button>
+    <div id="snackbar">Show some text..</div>
+</body>
+</html>
+<script>
+    let snackbar = document.getElementById('snackbar');
+    
+    
+    snackbarBtn = document.getElementsByTagName('button')[0].addEventListener('click', ()=> {
+        snackbar.style.display = 'block';
+    })
+
+
+
+</script>
