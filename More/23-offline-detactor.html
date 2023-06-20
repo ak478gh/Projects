@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Detactor</title>
+</head>
+<body>
+    <h1>Your Browser is <span id="res"></span></h1>
+</body>
+</html>
+
+<script>
+    let res = document.getElementById('res')
+
+    if(navigator.onLine){
+        res.innerHTML = 'Online'
+    } else {
+        res.innerHTML = 'Offline'
+    }
+</script>

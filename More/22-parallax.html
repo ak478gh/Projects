@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        body{
+            height: 200vh;
+        }
+        .parallax{
+            background-image: url('https://wallpaperaccess.com/full/112722.jpg');
+            
+            /* Set a specific height */
+            min-height: 200px;
+
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            height: 100vh;
+            position: relative;
+        }
+        .textBox{
+            text-align: center;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        .middle{
+            font-weight: bold;
+            font-size: 50px;
+            background-color: #ffffff;
+            padding: 20px;
+            /* making the text transparent */
+            mix-blend-mode: screen;
+
+            /* position */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #img2{
+            background-image: url('https://blog.depositphotos.com/wp-content/uploads/2017/07/Soothing-nature-backgrounds-2.jpg.webp');
+            height: 40vh;
+        }
+        #img3{
+            background-image: url('https://blog.depositphotos.com/wp-content/uploads/2017/07/How-to-Use-Landscape-Photography-in-Creative-Campaigns-2.jpg.webp');
+            height: 40vh;
+        }
+        #img4{
+            background-image: url('https://wallpaperaccess.com/full/112722.jpg');
+            height: 100vh;
+
+        }
+        .solid{
+            padding: 20px;
+            background-color: #222;
+            color: #fff;
+        }
+        .solidCenter{
+            color: white;
+
+            /* position */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax">
+        <h1 class="middle">SCROLL DOWN</h1>
+    </div>
+
+    <div class="textBox">
+        <h3>PARALLAX DEMO</h3>
+        <p>Parallax scrolling is a web site trend where the background content is moved at a different speed than the foreground content while scrolling. Nascetur per nec posuere turpis, lectus nec libero turpis nunc at, sed posuere mollis ullamcorper libero ante lectus, blandit pellentesque a, magna turpis est sapien duis blandit dignissim. Viverra interdum mi magna mi, morbi sociis. Condimentum dui ipsum consequat morbi, curabitur aliquam pede, nullam vitae eu placerat eget et vehicula. Varius quisque non molestie dolor, nunc nisl dapibus vestibulum at, sodales tincidunt mauris ullamcorper, dapibus pulvinar, in in neque risus odio. Accumsan fringilla vulputate at quibusdam sociis eleifend, aenean maecenas vulputate, non id vehicula lorem mattis, ratione interdum sociis ornare. Suscipit proin magna cras vel, non sit platea sit, maecenas ante augue etiam maecenas, porta porttitor placerat leo.</p>
+    </div>
+    
+    <div class="parallax" id="img2">
+        <h3 class="solidCenter">LESS HEIGHT</h3>
+    </div>
+    
+    <p class="solid">Scroll up and down to feel how parallax effect works.</p>
+    
+    <div class="parallax" id="img3">
+        <h3 class="solidCenter">LESS HEIGHT</h3>
+    </div>
+    
+    <p class="solid">Scroll up and down to feel how parallax effect works.</p>
+    
+    <div class="parallax" id="img4">
+        <h1 class="middle">COOL!</h1>
+    </div>
+</body>
+</html>
